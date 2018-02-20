@@ -1,1 +1,0 @@
-gcc main.c push/ft_printf.c push/ft_put_buf.c push/libft/*.c && ./a.out && rm ./a.out

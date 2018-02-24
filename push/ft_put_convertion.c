@@ -6,13 +6,13 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 05:10:51 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/17 11:56:23 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/21 18:21:12 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_put_convertion(t_convertion *convertion)
+void	ft_put_convertion(t_convert *convertion)
 {
 	if (convertion)
 	{

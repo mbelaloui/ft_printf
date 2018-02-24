@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:02:11 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/20 19:25:16 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/24 19:12:01 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 static void		check_flags(char *str, t_format *format)
 {
-	int			pt;
-	pt = 0;
-	while (str[pt] && !ft_is_conversion_type(str[pt]))
-	{
+	int pt;
 
-		//		ft_putchar(str[pt]);
+	pt = 0;
+	while (!ft_is_conversion_type(str[pt]))
+	{
 		if (str[pt] == '#')
 			format->flags.hashtag = 1;
 		else if (str[pt] == '+')
@@ -32,23 +31,16 @@ static void		check_flags(char *str, t_format *format)
 			format->flags.zero = 1;
 		else if (str[pt] == '\'')
 			format->flags.apo = 1;
-		//else
-		//	pt = ft_strlen(str) - 1;
-		
 		pt++;
 	}
-
-//		ft_put_flags(format->flags);
-
 }
 
-static void		get_convertion(char *str, t_convertion *convertion)
+static void		get_convertion(char *str, t_convert *convertion)
 {
-
 	int pt;
 
 	pt = 0;
-	while (str[pt] && !ft_is_conversion_type(str[pt]))
+	while (!ft_is_conversion_type(str[pt]))
 	{
 		if (str[pt] == 'l')
 		{
@@ -66,26 +58,27 @@ static void		get_convertion(char *str, t_convertion *convertion)
 			convertion->z = 1;
 		pt++;
 	}
-
 }
-
-static void		get_info(char *str, t_format *format)//malloc
+/* extraire la fonction dans un seul fichier et la diviser */
+static void		get_info(char *str, t_format *format)
 {
 	int			pt;
 	int			ref;
 
-//	ft_putstr(str);
 	pt = 0;
-	while (str[pt] && str[pt] != '.' && !(ft_isdigit(str[pt]) && str[pt] != '0')
+/*******************/
+	//min_length
+/*******************/
+	while (str[pt] != '.' && !(ft_isdigit(str[pt]) && str[pt] != '0')
 			&& str[pt] != '*' && !ft_is_conversion_type(str[pt]))
 		pt++;
-	
 	format->min_length = (str[pt] == '*') ? -2 : ft_atoi(str + pt);
-	
 	if(ft_isdigit(str[pt]) || str[pt] == '*')
 		format->is_there_min_length = 1;
-	
-	while (str[pt] && str[pt] != '.'&& !ft_is_conversion_type(str[pt]))
+/*******************/
+	//precision
+/*******************/
+	while (str[pt] != '.'&& !ft_is_conversion_type(str[pt]))
 		pt++;
 	if (str[pt] == '.' && !ft_is_conversion_type(str[pt]))
 	{
@@ -96,25 +89,20 @@ static void		get_info(char *str, t_format *format)//malloc
 		else
 			format->precision = -1;
 	}
-
+/*******************/
+	//modif_length
+/*******************/
 	get_convertion(str, &(format->convertion));
-
-//	ft_put_format(&format->convertion);
-	
-	while (str[pt] && !ft_is_conversion_type(str[pt]))
+/*******************/
+	//conversion_type
+/*******************/
+	while (!ft_is_conversion_type(str[pt]))
 		pt++;
-/*	--pt;
-	ref = pt;
-	while (pt > 0 && ft_isalpha(str[pt]) && !ft_is_conversion_type(str[pt]))
-		pt--;
-ft_putstr((str + ref));
-	if (!ft_isalpha(str[pt]) && !ft_is_conversion_type(str[pt]))
-		pt++;*/
-//ft_putstr(str);}
-//	format->prefix = (ref < pt) ? "!" : ft_strcut(str,pt,  ref +1);
 	format->type = str[pt];
 }
-
+/**		utiliser les pointeurs sur fonctions	
+ *	"sSpdDioOuUxXcC"
+ **/
 static void		switch_type(t_format *format, va_list *ap)
 {
 	if (format->type == 's')
@@ -129,14 +117,16 @@ int				ft_put_param(va_list *ap, char *str, t_format *format)
 {
 	int			pt_end_of_format;
 
-	if (str[1] && str[1] == '%') // mettre un put_buf et tester ce bout de code 
+	if (str[1] && str[1] == '%') 
 	{
 		ft_put_buf('%', PUT_CHAR);
 		return (2);
 	}
-	pt_end_of_format = ft_get_parssing(str); // enlever ca en testant directement avec str
-
-//ft_putstr(str);
+	if ((pt_end_of_format = ft_get_parssing(str)) == -1)
+	{
+		ft_put_buf('%', PUT_CHAR);
+		return (1);
+	}
 	check_flags(str + 1, format);
 	get_info(str, format);
 

@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 12:58:24 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/16 05:39:41 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:27:07 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	get_pt_start(t_format *format, int size_ret)
 	return (size_ret - 1);
 }
 
-static void		ft_generat_ret(t_format *format, char temp)
+static void		ft_generat_ret(t_format *format, unsigned char temp)
 {
 	int		shift;
 	int		size_ret;
@@ -55,12 +55,18 @@ static void		ft_generat_ret(t_format *format, char temp)
 
 void		ft_convert_char(t_format *format, va_list *ap)
 {
-	char	temp;
+	long	temp;
 
 	if (format->min_length == -2)
 		format->min_length = va_arg(*ap, int);
 	if (format->precision == -2)
 		format->precision = va_arg(*ap, int);
-	temp = (char)va_arg(*ap, int);
-	ft_generat_ret(format, temp);
+	temp = (int)va_arg(*ap, int);
+	if (format->convertion.l && format->convertion.nbr_l % 2 == 1)
+	{
+		if (temp >= 0 && temp <= 255)
+			ft_generat_ret(format, temp);
+	}
+	else
+		ft_generat_ret(format, (unsigned char )temp);
 }

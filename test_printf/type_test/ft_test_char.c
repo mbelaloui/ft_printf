@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 16:31:38 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/15 16:33:14 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:41:09 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void		ft_test_char(const char *c)
 	if (ft_test_Char_simple_flag(c, char_with_dash, &num_test))
 		succeed++;
 
-/*  ft_putstr(GREEN);
+  ft_putstr(GREEN);
 	ft_putstr("------------------ char with \"min_len\" -------------------\n");
 		ft_putstr(WHITE);
 	ft_putstr("\t min_length between \"0\" and \"");
@@ -99,7 +99,7 @@ void		ft_test_char(const char *c)
 			ft_putstr(WHITE);
 		}
 	}
-*/
+
 		ft_putstr(GREEN);
 	ft_putstr("-------- char with \"min_len\" and \"precision\" --------\n");
 		ft_putstr(WHITE);
@@ -223,7 +223,7 @@ void		ft_test_char(const char *c)
 			ft_putstr(WHITE);
 		}
 	}
-/*
+
 		ft_putstr(GREEN);
 	ft_putstr("-- char  with \"min_len\" and \"precision\"  and \"+\"--\n");
 		ft_putstr(WHITE);
@@ -285,7 +285,7 @@ void		ft_test_char(const char *c)
 		}
 		min_length++;
 	}
-*/
+
 	/*ft_putstr(GREEN);
 	ft_putstr("\t\t-- *char printf don\'t manage ---\n");
 	ft_putstr(WHITE);

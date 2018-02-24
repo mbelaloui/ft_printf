@@ -6,11 +6,68 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 16:31:38 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/20 19:19:06 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/23 18:51:15 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../test.h"
+
+int		run_test_minlenght_precision(int decimal, char **format, int *num_test,
+		int accuracy, char **titles)
+{
+	int succeed;
+	int min_length;
+	int max_lenght;
+	int len_decimal;
+	int precision;
+
+	len_decimal = ft_nbrlen(decimal);
+	if (len_decimal < 5)
+			len_decimal = 5;
+	max_lenght = len_decimal + accuracy;
+	min_length = 0;
+	succeed = 0;
+
+	ft_putstr(GREEN);
+	ft_putstr(titles[4]);
+		ft_putstr(WHITE);
+	ft_temporize(10);
+
+	while (min_length <= max_lenght)
+	{
+		if (ft_test_Decimal_with_minlen(decimal, format[4] 
+					,min_length, num_test))
+			succeed++;
+		if (min_length < max_lenght)
+		{
+			ft_putstr(GREEN);
+			ft_putstr("\n\t\t------------------------------------\n");
+			ft_putstr(WHITE);
+		}
+		min_length++;
+	}
+
+		ft_putstr(GREEN);
+	ft_putstr(titles[5]);
+		ft_putstr(WHITE);
+	ft_temporize(10);
+
+	precision = (max_lenght);
+	while (precision >= 0)
+	{
+		if (ft_test_Decimal_with_precision(decimal, format[5] 
+					, precision, num_test))
+			succeed++;
+		precision--;
+		if (precision > 0)
+		{
+			ft_putstr(GREEN);
+			ft_putstr("\n\t\t------------------------------------\n");
+			ft_putstr(WHITE);
+		}
+	}
+	return (succeed);
+}
 
 int		run_test(int decimal, char **format, int *num_test, int accuracy, char **titles)
 {
@@ -33,15 +90,14 @@ int		run_test(int decimal, char **format, int *num_test, int accuracy, char **ti
 		ft_putstr(WHITE);
 	ft_temporize(5);
 
-	if (ft_test_Decimal_simple_flag(decimal,format[0], &num_test))
+	if (ft_test_Decimal_simple_flag(decimal,format[0], num_test))
 		succeed++;
-
 		ft_putstr(GREEN);
 	ft_putstr(titles[1]);
 		ft_putstr(WHITE);
 	ft_temporize(5);
 
-	if (ft_test_Decimal_simple_flag(decimal, format[1], &num_test))
+	if (ft_test_Decimal_simple_flag(decimal, format[1], num_test))
 		succeed++;
 
 		ft_putstr(GREEN);
@@ -56,7 +112,7 @@ int		run_test(int decimal, char **format, int *num_test, int accuracy, char **ti
 		while (precision >= 0)
 		{
 			if (ft_test_Decimal_with_minlen_precision(decimal, format[2] 
-						,min_length, precision, &num_test))
+						,min_length, precision, num_test))
 				succeed++;
 			precision--;
 			if (min_length < max_lenght)
@@ -82,7 +138,7 @@ int		run_test(int decimal, char **format, int *num_test, int accuracy, char **ti
 		{
 			if (ft_test_Decimal_with_minlen_precision(decimal,
 						format[3] , min_length, precision,
-						&num_test))
+						num_test))
 				succeed++;
 			precision--;
 			if (precision != 0)
@@ -107,8 +163,8 @@ void		ft_test_decimal(int decimal)
 	int		accuracy = ft_nbrlen(decimal) * 2;
 	int		num_test = 0;
 
-	char *simple_decimal_format[4];
-	char *titles_simple_decimal[4];
+	char *simple_decimal_format[6];
+	char *titles_simple_decimal[6];
 
 	char *decimal_simple_title	
 		= "\t----------------------- simple decimal -------------------------\n";
@@ -116,6 +172,8 @@ void		ft_test_decimal(int decimal)
 	char *decimal_simple_dash_title
 		= "\t----------------- decimal with >\"dash\"< ----------------------\n";
 	char *decimal_with_dash						= "%-d";
+
+
 	char *decimal_simple_minlen_precision_title
 		= "\t--------- decimal with \"min_len\" and \"precision\" -----------\n";
 	char *decimal_with_minlen_precision			= "%*.*d";
@@ -123,21 +181,35 @@ void		ft_test_decimal(int decimal)
 		= "\t----- decimal with \"dash\", \"min_len\" and \"precision\" -----\n";
 	char *decimal_with_dash_minlen_precision	= "%-*.*d";
 
+	char *decimal_simple_minlen_title
+		= "\t------------- decimal with only \"min_len\" --------------------\n";
+	char *decimal_with_minlen			= "%*d";
+	char *decimal_simple_precision_title
+		= "\t----- decimal with  only \"precision\" -----\n";
+	char *decimal_with_precision	= "%.*d";
+
+
 	simple_decimal_format[0] = decimal_simple;
 	simple_decimal_format[1] = decimal_with_dash;
 	simple_decimal_format[2] = decimal_with_minlen_precision;
 	simple_decimal_format[3] = decimal_with_dash_minlen_precision;
+	simple_decimal_format[4] = decimal_with_minlen;
+	simple_decimal_format[5] = decimal_with_precision;
 
 	titles_simple_decimal[0] = decimal_simple_title;
 	titles_simple_decimal[1] = decimal_simple_dash_title;
 	titles_simple_decimal[2] = decimal_simple_minlen_precision_title;
 	titles_simple_decimal[3] = decimal_simple_dash_minlen_precision_title;
+	titles_simple_decimal[4] = decimal_simple_minlen_title;
+	titles_simple_decimal[5] = decimal_simple_precision_title;
 
 	succeed += run_test(decimal, simple_decimal_format, &num_test, accuracy, 
 			titles_simple_decimal);
+	succeed += run_test_minlenght_precision(decimal,simple_decimal_format,
+			&num_test, accuracy, titles_simple_decimal);
 
-	char *decimal_plus_format[4];
-	char *titles_decimal_plus[4];
+	char *decimal_plus_format[6];
+	char *titles_decimal_plus[6];
 
 	char *decimal_plus_title
 		= "\t---------------------- decimal with \"+\" -----------------------\n";
@@ -284,21 +356,148 @@ void		ft_test_decimal(int decimal)
 	succeed += run_test(decimal, decimal_zero_space_plus_format, &num_test, accuracy,
 			titles_decimal_zero_space_plus);
 
-/*
+	char *decimal_conversion_format[6];
+	char *titles_conversion_hh[6];
+
 	char *decimal_simple_space_zero_apo								= "%'0 hhd";
 	char *decimal_with_dash_space_zero_apo							= "%'0 -hhd";
+	char *decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*hhd";
+	char *decimal_with_plus_dash_minlen_precision_space_zero_apo	= "%'+-0 *.*hhd";
 	char *decimal_with_minlen_space_zero_apo						= "%'0 *hhd";
 	char *decimal_with_precision_space_zero_apo						= "%'0 .*hhd";
-	char *decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*hhd";
-	char *decimal_with_dash_minlen_precision_space_zero_apo			= "%'-0 *.*hhd";
-	char *decimal_with_plus_space_zero_apo							= "%'+0 hhd";
-	char *decimal_with_plus_dash_space_zero_apo						= "%'+0 -hhd";
-	char *decimal_with_plus_minlen_space_zero_apo					= "%'+0 *hhd";
-	char *decimal_with_plus_precision_space_zero_apo				= "%'+0 .*hhd";
-	char *decimal_with_plus_minlen_precision_space_zero_apo			= "%'+0 *.*hhd";
-	char *decimal_with_plus_dash_minlen_precision_space_zero_apo	= "%'+-0 *.*hhd";
-*/
-/*
+	
+	char *decimal_zero_space_dash_title 	= 
+		"\t-------------- decimal with \"dash\", \"0\", \"space\' ----------\n";
+	char *decimal_zero_space_minlen_title 	
+		= "\t--------- decimal with \"0\", \"space\',and \"min_len\" ---------\n";
+	char *decimal_zero_space_precision_title 	=
+		"\t-------- decimal with \"0\", \"space\', and \"precision\" -------\n";
+
+	decimal_conversion_format[0] = decimal_simple_space_zero_apo;
+	decimal_conversion_format[1] = decimal_with_dash_space_zero_apo;
+	decimal_conversion_format[2] = decimal_with_minlen_precision_space_zero_apo;
+	decimal_conversion_format[3] = decimal_with_plus_dash_minlen_precision_space_zero_apo;
+	decimal_conversion_format[4] = decimal_with_minlen_space_zero_apo;
+	decimal_conversion_format[5] = decimal_with_precision_space_zero_apo;
+
+	titles_conversion_hh[0] = decimal_zero_space_title;
+	titles_conversion_hh[1] = decimal_zero_space_dash_title;
+	titles_conversion_hh[2] = decimal_zero_space_minlen_precision_title;
+	titles_conversion_hh[3] = decimal_zero_space_dash_plus_minlen_precision_title;
+	titles_conversion_hh[4] = decimal_zero_space_minlen_title;
+	titles_conversion_hh[5] = decimal_zero_space_precision_title;
+
+	succeed += run_test(decimal, decimal_conversion_format, &num_test, accuracy, 
+			titles_conversion_hh);
+	succeed += run_test_minlenght_precision(decimal, decimal_conversion_format,
+			&num_test, accuracy, titles_conversion_hh);
+
+	decimal_simple_space_zero_apo								= "%'0 hd";
+	decimal_with_dash_space_zero_apo							= "%'0 -hd";
+	decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*hd";
+	decimal_with_plus_dash_minlen_precision_space_zero_apo	= "%'+-0 *.*hd";
+	decimal_with_minlen_space_zero_apo						= "%'0 *hd";
+	decimal_with_precision_space_zero_apo						= "%'0 .*hd";
+
+	decimal_conversion_format[0] = decimal_simple_space_zero_apo;
+	decimal_conversion_format[1] = decimal_with_dash_space_zero_apo;
+	decimal_conversion_format[2] = decimal_with_minlen_precision_space_zero_apo;
+	decimal_conversion_format[3] = decimal_with_plus_dash_minlen_precision_space_zero_apo;
+	decimal_conversion_format[4] = decimal_with_minlen_space_zero_apo;
+	decimal_conversion_format[5] = decimal_with_precision_space_zero_apo;
+
+	titles_conversion_hh[0] = decimal_zero_space_title;
+	titles_conversion_hh[1] = decimal_zero_space_dash_title;
+	titles_conversion_hh[2] = decimal_zero_space_minlen_precision_title;
+	titles_conversion_hh[3] = decimal_zero_space_dash_plus_minlen_precision_title;
+	titles_conversion_hh[4] = decimal_zero_space_minlen_title;
+	titles_conversion_hh[5] = decimal_zero_space_precision_title;
+
+	succeed += run_test(decimal, decimal_conversion_format, &num_test, accuracy, 
+			titles_conversion_hh);
+	succeed += run_test_minlenght_precision(decimal, decimal_conversion_format,
+			&num_test, accuracy, titles_conversion_hh);
+
+	decimal_simple_space_zero_apo								= "%'0 jd";
+	decimal_with_dash_space_zero_apo							= "%'0 -jd";
+	decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*jd";
+	decimal_with_plus_dash_minlen_precision_space_zero_apo		= "%'+-0 *.*jd";
+	decimal_with_minlen_space_zero_apo							= "%'0 *jd";
+	decimal_with_precision_space_zero_apo						= "%'0 .*jd";
+
+	decimal_conversion_format[0] = decimal_simple_space_zero_apo;
+	decimal_conversion_format[1] = decimal_with_dash_space_zero_apo;
+	decimal_conversion_format[2] = decimal_with_minlen_precision_space_zero_apo;
+	decimal_conversion_format[3] = decimal_with_plus_dash_minlen_precision_space_zero_apo;
+	decimal_conversion_format[4] = decimal_with_minlen_space_zero_apo;
+	decimal_conversion_format[5] = decimal_with_precision_space_zero_apo;
+
+	titles_conversion_hh[0] = decimal_zero_space_title;
+	titles_conversion_hh[1] = decimal_zero_space_dash_title;
+	titles_conversion_hh[2] = decimal_zero_space_minlen_precision_title;
+	titles_conversion_hh[3] = decimal_zero_space_dash_plus_minlen_precision_title;
+	titles_conversion_hh[4] = decimal_zero_space_minlen_title;
+	titles_conversion_hh[5] = decimal_zero_space_precision_title;
+
+	succeed += run_test(decimal, decimal_conversion_format, &num_test, accuracy, 
+			titles_conversion_hh);
+	succeed += run_test_minlenght_precision(decimal, decimal_conversion_format,
+			&num_test, accuracy, titles_conversion_hh);
+
+
+
+	decimal_simple_space_zero_apo								= "%'0 zd";
+	decimal_with_dash_space_zero_apo							= "%'0 -zd";
+	decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*zd";
+	decimal_with_plus_dash_minlen_precision_space_zero_apo		= "%'+-0 *.*zd";
+	decimal_with_minlen_space_zero_apo							= "%'0 *zd";
+	decimal_with_precision_space_zero_apo						= "%'0 .*zd";
+
+	decimal_conversion_format[0] = decimal_simple_space_zero_apo;
+	decimal_conversion_format[1] = decimal_with_dash_space_zero_apo;
+	decimal_conversion_format[2] = decimal_with_minlen_precision_space_zero_apo;
+	decimal_conversion_format[3] = decimal_with_plus_dash_minlen_precision_space_zero_apo;
+	decimal_conversion_format[4] = decimal_with_minlen_space_zero_apo;
+	decimal_conversion_format[5] = decimal_with_precision_space_zero_apo;
+
+	titles_conversion_hh[0] = decimal_zero_space_title;
+	titles_conversion_hh[1] = decimal_zero_space_dash_title;
+	titles_conversion_hh[2] = decimal_zero_space_minlen_precision_title;
+	titles_conversion_hh[3] = decimal_zero_space_dash_plus_minlen_precision_title;
+	titles_conversion_hh[4] = decimal_zero_space_minlen_title;
+	titles_conversion_hh[5] = decimal_zero_space_precision_title;
+
+	succeed += run_test(decimal, decimal_conversion_format, &num_test, accuracy, 
+			titles_conversion_hh);
+	succeed += run_test_minlenght_precision(decimal, decimal_conversion_format,
+			&num_test, accuracy, titles_conversion_hh);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
 	char *decimal_signed_char_format[4];
 	char *titles_decimal_signed_char[4];
 
@@ -368,6 +567,8 @@ void		ft_test_decimal(int decimal)
 		succeed++;
 */
 
-	ft_putstr("---------------------- end decimal test ----------------------\n");
+	ft_putstr("---------------------- end  decimal <");
+	ft_putnbr(decimal);
+	ft_putstr("> test ----------------------\n");
 	ft_put_summary(num_test, succeed);//return (nbr_test_ok);
 }

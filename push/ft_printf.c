@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 16:38:35 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/18 11:18:38 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:54:32 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int			ft_printf(const char *input, ...)
 	len = ft_put_buf(' ', EOL);
 	ft_put_buf(' ', RESET);
 	va_end(ap);
-	ft_temporize(1);
+//	ft_temporize(1);
 	return (len);
 }

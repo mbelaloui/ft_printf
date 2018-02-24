@@ -6,17 +6,17 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 18:03:01 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/16 02:36:32 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/23 16:57:08 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../test.h"
 
-int		ft_test_Decimal_simple_flag(const int decimal, const char *format, int **num_test)
+int		ft_test_Decimal_simple_flag(const int decimal, const char *format, int *num_test)
 {
 	int ret1, ret2;
 
-	ft_print_simple_title(ft_itoa(decimal), format, *num_test);
+	ft_print_simple_title(ft_itoa(decimal), format, num_test);
 		ft_putstr(YELLOW);
 	ft_putstr("\t\t - expected print \t>");
 		ft_putstr(WHITE);

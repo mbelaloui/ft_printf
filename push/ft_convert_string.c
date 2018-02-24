@@ -6,26 +6,19 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 12:58:24 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/16 05:38:05 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/24 19:04:05 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		get_pt_start(t_format *format, int *size_ret) // pas la meme chose pour les s et S ou  d et les autres 
+static int		get_pt_start(t_format *format, int *size_ret)
 {
 	if (format->flags.dash)
 		return (0);
-	else
-	{
-		if (format->min_length > format->precision)
-			return(format->min_length - format->precision);
-		if (format->precision >= format->precision)
-			return(format->min_length - format->len_temp);
-		if (*size_ret == format->len_temp)
-			return (0);
-	}
-	return (0);
+	if (format->min_length > format->precision)
+		return(format->min_length - format->precision);
+	return(format->min_length - format->len_temp);
 }
 
 static int		put_string(int max_print, char print)

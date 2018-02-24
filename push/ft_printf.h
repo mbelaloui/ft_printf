@@ -6,13 +6,13 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 13:11:55 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/20 20:02:17 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/23 13:27:17 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "../../libft/libft.h"
+# include "../../../../libft/libft.h"
 # include <stdarg.h>
 
 #define		SIZE_BUF	80
@@ -74,5 +74,7 @@ int				ft_put_buf(const char c, int option);
 void			ft_format_init(t_format *format);
 
 void			ft_put_nbr(long nbr, t_format *format);
+
+long			ft_get_convertion_d(long data, t_convert convert);
 
 #endif

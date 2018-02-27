@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:02:11 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/24 19:12:01 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/27 11:12:37 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,16 @@ static void		get_info(char *str, t_format *format)
 	if (str[pt] == '.' && !ft_is_conversion_type(str[pt]))
 	{
 		pt++;
-		format->precision = (str[pt] == '*') ? -2 : ft_atoi(str + pt);
 		if(ft_isdigit(str[pt]) || str[pt] == '*')
+		{	format->precision = (str[pt] == '*') ? -2 : ft_atoi(str + pt);
 			format->is_there_precision = 1;
-		else
-			format->precision = -1;
+		}
+	//	else
+	//		format->precision = 1;
 	}
+/*	ft_putstr("precision");
+	ft_putnbr(format->precision);
+	ft_putstr("\n");*/
 /*******************/
 	//modif_length
 /*******************/

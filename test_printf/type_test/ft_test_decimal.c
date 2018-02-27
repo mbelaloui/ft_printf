@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 16:31:38 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/23 18:51:15 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/27 14:30:21 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		run_test_minlenght_precision(int decimal, char **format, int *num_test,
 	ft_putstr(GREEN);
 	ft_putstr(titles[4]);
 		ft_putstr(WHITE);
-	ft_temporize(10);
+//	ft_temporize(10);
 
 	while (min_length <= max_lenght)
 	{
@@ -50,7 +50,7 @@ int		run_test_minlenght_precision(int decimal, char **format, int *num_test,
 		ft_putstr(GREEN);
 	ft_putstr(titles[5]);
 		ft_putstr(WHITE);
-	ft_temporize(10);
+//	ft_temporize(10);
 
 	precision = (max_lenght);
 	while (precision >= 0)
@@ -88,14 +88,14 @@ int		run_test(int decimal, char **format, int *num_test, int accuracy, char **ti
 		ft_putstr(GREEN);
 	ft_putstr(titles[0]);
 		ft_putstr(WHITE);
-	ft_temporize(5);
+//	ft_temporize(5);
 
 	if (ft_test_Decimal_simple_flag(decimal,format[0], num_test))
 		succeed++;
 		ft_putstr(GREEN);
 	ft_putstr(titles[1]);
 		ft_putstr(WHITE);
-	ft_temporize(5);
+//	ft_temporize(5);
 
 	if (ft_test_Decimal_simple_flag(decimal, format[1], num_test))
 		succeed++;
@@ -103,7 +103,7 @@ int		run_test(int decimal, char **format, int *num_test, int accuracy, char **ti
 		ft_putstr(GREEN);
 	ft_putstr(titles[2]);
 		ft_putstr(WHITE);
-	ft_temporize(10);
+//	ft_temporize(10);
 
 	min_length = 0;
 	while (min_length <= max_lenght)
@@ -128,7 +128,7 @@ int		run_test(int decimal, char **format, int *num_test, int accuracy, char **ti
 		ft_putstr(GREEN);
 	ft_putstr(titles[3]);
 		ft_putstr(WHITE);
-	ft_temporize(10);
+//	ft_temporize(10);
 
 	min_length = len_decimal;
 	while (min_length <= max_lenght)
@@ -187,7 +187,6 @@ void		ft_test_decimal(int decimal)
 	char *decimal_simple_precision_title
 		= "\t----- decimal with  only \"precision\" -----\n";
 	char *decimal_with_precision	= "%.*d";
-
 
 	simple_decimal_format[0] = decimal_simple;
 	simple_decimal_format[1] = decimal_with_dash;
@@ -296,7 +295,6 @@ void		ft_test_decimal(int decimal)
 	succeed += run_test(decimal, decimal_zero_plus_format, &num_test, accuracy,
 			titles_decimal_zero_plus);
 
-
 	char *decimal_zero_space_format[4];
 	char *titles_decimal_zero_space[4];
 
@@ -325,7 +323,6 @@ void		ft_test_decimal(int decimal)
 
 	succeed += run_test(decimal, decimal_zero_space_format, &num_test, accuracy,
 			titles_decimal_zero_space);
-
 
 	char *decimal_zero_space_plus_format[4];
 	char *titles_decimal_zero_space_plus[4];
@@ -471,7 +468,6 @@ void		ft_test_decimal(int decimal)
 			titles_conversion_hh);
 	succeed += run_test_minlenght_precision(decimal, decimal_conversion_format,
 			&num_test, accuracy, titles_conversion_hh);
-
 
 
 

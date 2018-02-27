@@ -6,12 +6,14 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 16:31:38 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/24 17:41:09 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/26 16:03:51 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../test.h"
-
+/**
+ *	voir main_V1.c pour ammelioration
+ * */
 void		ft_test_char(const char *c)
 {
 	int nbr_test_ok = 0;
@@ -26,18 +28,18 @@ void		ft_test_char(const char *c)
 	if (min_length < 0)
 		min_length = 0;
 	
-*/	char *char_simple							= "%c";
-	char *char_with_dash						= "%-c";
-	char *char_with_minlen						= "%*c";
-	char *char_with_precision					= "%.*c";
-	char *char_with_minlen_precision			= "%*.*c";
-	char *char_with_dash_minlen_precision		= "%-*.*c";
-	char *char_with_plus						= "%+c";
-	char *char_with_plus_dash					= "%+-c";
-	char *char_with_plus_minlen					= "%+*c";
-	char *char_with_plus_precision				= "%+.*c";
-	char *char_with_plus_minlen_precision		= "%+*.*c";
-	char *char_with_plus_dash_minlen_precision	= "%+-*.*c";
+*/	char *char_simple							= "%lc";
+	char *char_with_dash						= "%-lc";
+	char *char_with_minlen						= "%*lc";
+	char *char_with_precision					= "%.*lc";
+	char *char_with_minlen_precision			= "%*.*lc";
+	char *char_with_dash_minlen_precision		= "%-*.*lc";
+	char *char_with_plus						= "%+lc";
+	char *char_with_plus_dash					= "%+-lc";
+	char *char_with_plus_minlen					= "%+*lc";
+	char *char_with_plus_precision				= "%+.*lc";
+	char *char_with_plus_minlen_precision		= "%+*.*lc";
+	char *char_with_plus_dash_minlen_precision	= "%+-*.*lc";
 
 	ft_putstr(GREEN);
 	ft_putstr("------------------------- char test -------------------------\n");

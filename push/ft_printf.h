@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 13:11:55 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/23 13:27:17 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/27 13:59:00 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ void			ft_format_init(t_format *format);
 
 void			ft_put_nbr(long nbr, t_format *format);
 
-long			ft_get_convertion_d(long data, t_convert convert);
+long			ft_get_convertion_d(int data, t_convert convert);
 
 #endif

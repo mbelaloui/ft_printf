@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/28 12:23:06 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/18 11:49:46 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/27 10:54:07 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	ft_format_init(t_format *format)
 		format->flags.hashtag = 0;
 		format->flags.zero = 0;
 		format->flags.space = 0;
-		format->min_length = -1;
+		format->min_length = 0;
 		format->is_there_min_length = 0;
-		format->precision = -1;
+		format->precision = 1;
 		format->is_there_precision = 0;
 		format->convertion.l = 0;
 		format->convertion.h = 0;
@@ -33,6 +33,6 @@ void	ft_format_init(t_format *format)
 		format->convertion.z = 0;
 		format->convertion.j = 0;
 		format->type = '!';
-		format->len_temp = -1;
+		format->len_temp = 0;
 	}
 }

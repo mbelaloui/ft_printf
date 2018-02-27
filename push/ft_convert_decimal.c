@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 12:46:14 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/24 16:31:18 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/27 14:32:46 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static void		manage_space(long temp, t_format *frmt, int *pt, int shift)
 {
 	if (((temp >= 0 && frmt->flags.space) && 
-		((!frmt->flags.plus) &&
-				(shift == 0 || frmt->flags.dash ))))
+				((!frmt->flags.plus) &&
+				 (shift == 0 || frmt->flags.dash ))))
 	{
 		ft_put_buf(' ', PUT_CHAR);
 		(*pt)++;
@@ -31,9 +31,7 @@ static void		manage_space(long temp, t_format *frmt, int *pt, int shift)
 
 static void		manage_sng_zero(long temp, t_format *f, int nbr_0, int *pt)
 {
-//	if (format->flags->dash)
-//	nbr_0--;
-		if (temp >= 0L && f->flags.plus)
+	if (temp >= 0L && f->flags.plus)
 		ft_put_buf('+', PUT_CHAR);
 	else if (temp < 0L)
 		ft_put_buf('-', PUT_CHAR);
@@ -47,15 +45,6 @@ static void		manage_sng_zero(long temp, t_format *f, int nbr_0, int *pt)
 	}
 }
 
-/*static void		manage_end(int pt, int size_ret)
-{
-	while (pt < size_ret)
-	{
-		ft_put_buf(' ', PUT_CHAR);
-		pt++;
-	}
-}
-*/
 static void		ft_generat_ret(t_format *format, long temp)
 {
 	int		size_ret;
@@ -63,43 +52,25 @@ static void		ft_generat_ret(t_format *format, long temp)
 	int		shift;
 	int		pt;
 
+	pt = ((format->flags.plus) || temp < 0) ? 1 : 0;
 	size_ret = ft_max(format->len_temp, format->precision);
 	size_ret = ft_max(size_ret, format->min_length);
 	shift = (size_ret - ft_max(format->len_temp, format->precision));
 	if (temp < 0 || format->flags.plus)
 		shift--;
-	pt = ((format->flags.plus) || temp < 0) ? 1 : 0;
 	nbr_0 = format->precision - format->len_temp;
 	manage_space(temp, format, &pt, shift);
 	manage_sng_zero(temp, format, nbr_0, &pt);
-	if (!(format->min_length <= size_ret && temp == 0) 
-			|| (format->convertion.h && format->convertion.nbr_h % 2))
+	if ((!(format->min_length <= size_ret && temp == 0) 
+				|| (format->convertion.h && format->convertion.nbr_h % 2)) &&
+			((format->precision != 0 && temp != 0) || (temp != 0)))
 		ft_put_nbr(temp, format);
 	while (pt + format->len_temp < size_ret)
 	{
 		ft_put_buf(' ', PUT_CHAR);
 		pt++;
 	}
-//manage_end(pt + format->len_temp, size_ret);
-/*	ft_putstr("\n");
-	ft_putstr("[size_ret : ");
-	ft_putnbr(size_ret);
-	ft_putstr(", nbr_0 :  ");
-	ft_putnbr(nbr_0);
-	ft_putstr(", pt :  ");
-	ft_putstr(", format->len_temp : ");
-	ft_putnbr(format->len_temp);
-	ft_putstr(", precision :  ");
-	ft_putnbr(format->precision);
-	ft_putstr(", shift :  ");
-	ft_putnbr(shift);
-	ft_putstr(", min_length :  ");
-	ft_putnbr(format->min_length);
-	ft_putstr(", pt :  ");
-	ft_putnbr(pt);
-	ft_putstr("]");
-	ft_putstr("\n\t\t\t\t\t>");
-*/}
+}
 
 void			ft_convert_decimal(t_format *format, va_list *ap)
 {
@@ -109,53 +80,51 @@ void			ft_convert_decimal(t_format *format, va_list *ap)
 		format->min_length = va_arg(*ap, int);
 	if (format->precision == -2)
 		format->precision = va_arg(*ap, int);
-	temp = (long)(va_arg(*ap, int));
-	temp = ft_get_convertion_d(temp, format->convertion);
+	if (format->convertion.j)
+		temp = (va_arg(*ap, intmax_t));
+	else if (format->convertion.z)
+		temp = (va_arg(*ap, size_t));
+	else
+	{
+		temp = (va_arg(*ap, int));
+		temp = ft_get_convertion_d(temp, format->convertion);
+	}
 	format->len_temp = ft_nbrlen(temp);
-	if (format->flags.zero && (format->precision < 0) &&
-			format->min_length > format->len_temp)
-			format->precision = format->min_length - 1;
-	if (format->min_length <= 0)
-		format->min_length = format->len_temp;
-	if ((format->precision < 0) 
-			|| (format->precision == 0 && temp != 0) || (format->convertion.h &&
-		((format->min_length == 1 && !format->precision) ||
-		(format->min_length == 0 && 0 > format->precision)))
-		|| !(format->is_there_min_length || format->is_there_precision))
+	if (!format->is_there_precision && format->flags.zero)
+		format->precision =  format->min_length - 1;
+	if (format->precision <= 0 && !format->is_there_precision)
 		format->precision = 1;
 	ft_generat_ret(format, temp);
 }
 
 /*	if (format->convertion.h)
 	{
-		if (format->convertion.nbr_h % 2)
-			temp = (short) temp;
-		else
-			temp= (char) temp;
+	if (format->convertion.nbr_h % 2)
+	temp = (short) temp;
+	else
+	temp= (char) temp;
 	}
-*/	
-
+*/
 
 //	ft_putstr("\n");
 //	ft_put_format(format);
 /*
-	ft_putstr("\n");
-	ft_putstr("[size_ret : ");
-	ft_putnbr(size_ret);
-	ft_putstr(", nbr_0 :  ");
-	ft_putnbr(nbr_0);
-	ft_putstr(", pt :  ");
-	ft_putstr(", format->len_temp : ");
-	ft_putnbr(format->len_temp);
-	ft_putstr(", precision :  ");
-	ft_putnbr(format->precision);
-	ft_putstr(", shift :  ");
-	ft_putnbr(shift);
-	ft_putstr(", min_length :  ");
-	ft_putnbr(format->min_length);
-	ft_putstr(", pt :  ");
-	ft_putnbr(pt);
-	ft_putstr("]");
-	ft_putstr("\n\t\t\t\t\t>");
+   ft_putstr("\n");
+   ft_putstr("[size_ret : ");
+   ft_putnbr(size_ret);
+   ft_putstr(", nbr_0 :  ");
+   ft_putnbr(nbr_0);
+   ft_putstr(", pt :  ");
+   ft_putstr(", format->len_temp : ");
+   ft_putnbr(format->len_temp);
+   ft_putstr(", precision :  ");
+   ft_putnbr(format->precision);
+   ft_putstr(", shift :  ");
+   ft_putnbr(shift);
+   ft_putstr(", min_length :  ");
+   ft_putnbr(format->min_length);
+   ft_putstr(", pt :  ");
+   ft_putnbr(pt);
+   ft_putstr("]");
+   ft_putstr("\n\t\t\t\t\t>");
 */
-

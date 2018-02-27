@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 12:58:24 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/24 19:04:05 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/26 14:02:17 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,23 @@ static void		ft_generat_ret(t_format *format, char *temp)
 	}
 	nbr_char_put += pt;
 	put_string(format->min_length - nbr_char_put, ' ');
+/*	ft_putstr("\nat the begining <[shift :");
+	ft_putnbr(shift);
+	ft_putstr(", size_ret :");
+	ft_putnbr(size_ret);
+	ft_putstr(", nbr_char_put :");
+	ft_putnbr(nbr_char_put);
+	ft_putstr(", shift :");
+	ft_putnbr(shift);
+	ft_putstr(", pt :");
+	ft_putnbr(pt);
+	ft_putstr(", len_temp :");
+	ft_putnbr(format->len_temp);
+	ft_putstr(", precision :");
+	ft_putnbr(format->precision);
+	ft_putstr(", min_length :");
+	ft_putnbr(format->min_length);
+	ft_putstr("]\n");*/
 }
 
 void			ft_convert_string(t_format *format, va_list *ap)
@@ -62,7 +79,7 @@ void			ft_convert_string(t_format *format, va_list *ap)
 		format->precision = va_arg(*ap, int);
 	temp = va_arg(*ap, char*);
 	format->len_temp = ft_strlen(temp);
-	if (format->precision == -1 || format->len_temp < format->precision)
+	if (!format->is_there_precision  || format->len_temp < format->precision)
 		format->precision = format->len_temp;
 	ft_generat_ret(format, temp);
 }

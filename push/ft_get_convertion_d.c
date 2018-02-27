@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 13:06:12 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/24 16:43:04 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/27 14:32:06 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static long		get_l(long data, t_convert conv)
 		return((long long) data);
 }
 
-long			ft_get_convertion_d(long	data, t_convert conv)
+long			ft_get_convertion_d(int	data, t_convert conv)
 {
 	long result;
 

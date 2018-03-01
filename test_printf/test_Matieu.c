@@ -1,4 +1,16 @@
-#include "ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_Matieu.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/02/27 15:00:17 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/03/01 15:23:24 by mbelalou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "test.h"
 
 #include <stdio.h>
 #include <locale.h>
@@ -7,13 +19,97 @@ int main_()
 {
 	printf("%d\n" ,ft_printf("ft_printf : "));
 	printf("%d\n" ,printf("no_printf : "));
-	return (0)
+	return (0);
 }
 
 int	main(void)
 {
 	setlocale(LC_ALL, "");
-	printf("%d\n" ,ft_printf("hello tests"));
+	printf(" %d\n" ,ft_printf("%i", 0));
+	printf(" %d\n",printf("%i", 0));
+	printf(" %d\n" ,ft_printf("%d, %d", 245, -952));
+	printf(" %d\n" ,printf("%d, %d", 245, -952));
+	printf(" %d\n" ,ft_printf("%+i %+i % i % i", 321, -321, 321, -321));
+	printf(" %d\n" ,   printf("%+i %+i % i % i", 321, -321, 321, -321));
+	printf(" %d\n" ,ft_printf("%10i", 12));
+	printf(" %d\n" ,printf("%10i", 12));
+	printf(" %d\n" ,ft_printf("%.12d", 42));
+	printf(" %d\n" ,printf("%.12d", 42));
+	printf(" %d\n" ,ft_printf("{%-10d}", 42));
+	printf(" %d\n" ,printf("{%-10d}", 42));
+	printf(" %d\n" ,ft_printf("%.4d", 42));
+	printf(" %d\n" ,printf("%.4d", 42));
+	printf(" %d\n" ,ft_printf("%.4d", 424242));
+	printf(" %d\n" ,printf("%.4d", 424242));
+	printf(" %d\n" ,printf("%15.4d", 42));
+	printf(" %d\n" ,ft_printf("%15.4d", 42));
+	printf(" %d\n" ,ft_printf("{%010d}", -42));
+	printf(" %d\n" ,printf("{%010d}", -42));
+	printf(" %d\n" ,printf("{%10d}", -42));
+	printf(" %d\n" ,printf("{%10d}", -42));
+	printf(" %d\n" ,ft_printf("{% 03d}", 0));
+	printf(" %d\n" ,printf("{% 03d}", 0));
+	printf(" %d\n" ,printf("%15.4d", 4));
+	printf(" %d\n" ,ft_printf("%15.4d", 4));
+	printf(" %d\n" ,printf("{%0-3d}", 0));
+	printf(" %d\n" ,ft_printf("{%0-3d}", 0));
+	printf(" %d\n" ,printf("{%03d}", 0));
+	printf(" %d\n" ,ft_printf("{%03d}", 0));
+	printf(" %d\n" ,printf("%15.4d", 424242));
+	printf(" %d\n" ,ft_printf("%15.4d", 424242));
+	printf(" %d\n" ,printf("{%10.5d}", 9));
+	printf(" %d\n" ,ft_printf("{%10.5d}", 9));
+	printf(" %d\n" ,printf("{%03.2d}", 9));
+	printf(" %d\n" ,ft_printf("{%03.2d}", 9));
+	printf(" %d\n" ,printf("{%03.5d}", 9));
+	printf(" %d\n" ,ft_printf("{%03.5d}", 9));
+	printf(" %d\n" ,printf("{%03.10d}", 9));
+	printf(" %d\n" ,ft_printf("{%03.10d}", 9));
+	printf(" %d\n" ,printf("{%03.2d}", 0));
+	printf(" %d\n" ,ft_printf("{%03.2d}", 0));
+	printf(" %d\n" ,printf("{%020.8d}", 42));
+	printf(" %d\n" ,ft_printf("{%020.8d}", 42));
+	printf(" %d\n" ,printf("{%020.5d}", 42));
+	printf(" %d\n" ,ft_printf("{%020.5d}", 42));
+	printf(" %d\n" ,printf("{%20.5d}", 42));
+	printf(" %d\n" ,ft_printf("{%20.5d}", 42));
+	printf(" %d\n" ,printf("{%.20d}", 42));
+	printf(" %d\n" ,ft_printf("{%.20d}", 42));
+	printf(" %d\n" ,printf("{%020d}", 42));
+	printf(" %d\n" ,ft_printf("{%020d}", 42));
+	printf(" %d\n" ,printf("{%015.20d}", 42));
+	printf(" %d\n" ,ft_printf("{%015.20d}", 42));
+	printf("%d\n" ,printf("{%-020.8d}", 42));
+	printf("%d\n" ,ft_printf("{%-020.8d}", 42));
+	printf("%d\n" ,printf("{%-020.5d}", 42));
+	printf("%d\n" ,printf("{%-020.5d}", 42));
+	printf("%d\n" ,ft_printf("{%-20.5d}", 42));
+	printf("%d\n" ,printf("{%-20.5d}", 42));
+	printf("%d\n" ,ft_printf("{%-.20d}", 42));
+	printf("%d\n" ,printf("{%-.20d}", 42));
+	printf("%d\n" ,ft_printf("{%-020d}", 42));
+	printf("%d\n" ,printf("{%-020d}", 42));
+	printf("%d\n" ,ft_printf("{%-015.20d}", 42));
+	printf("%d\n" ,printf("{%-015.20d}", 42));
+	printf("%d\n" ,ft_printf("%.d, %.0d", 0, 0));
+	printf("%d\n" ,printf("%.d, %.0d", 0, 0));
+	printf("%d\n" ,ft_printf("% 10.5d", 4242));
+	printf("%d\n" ,printf("% 10.5d", 4242));
+	printf("%d\n" ,ft_printf("%+10.5d", 4242));
+	printf("%d\n" ,printf("%+10.5d", 4242));
+	printf("%d\n" ,ft_printf("%10.5d", -4242));
+	printf("%d\n" ,printf("%10.5d", -4242));
+	printf("%d\n" ,ft_printf("%03.2d", -1));
+	printf("%d\n" ,printf("%03.2d", -1));
+	printf("%d\n" ,ft_printf("@moulitest: %.d %.0d", 42, 43));
+	printf("%d\n" ,printf("@moulitest: %.d %.0d", 42, 43));
+	printf("%d\n" ,ft_printf("@moulitest: %5.d %5.0d", 0, 0));
+	printf("%d\n" ,printf("@moulitest: %5.d %5.0d", 0, 0));
+	printf("%d\n" ,ft_printf("%.10d", -42));
+	printf("%d\n" ,printf("%.10d", -42));
+	
+	
+/*	printf("%d\n" ,ft_printf("hello tests"));
 	printf("%d\n" ,printf("hello tests"));
 	printf("%d\n" ,ft_printf("test test test 		test lol"));
 	printf("%d\n", printf("test test test 		test lol"));
@@ -27,10 +123,6 @@ int	main(void)
 	printf("%d\n", printf("%C", L'a'));
 	printf("%d\n" ,ft_printf("%C xDD", L'𐀀'));
 	printf("%d\n" ,printf("%C xDD", L'𐀀'));
-	printf("%d\n" ,ft_printf("%i", 0));
-	printf("%d\n",printf("%i", 0));
-	printf("%d\n" ,ft_printf("%d, %d", 245, -952));
-	printf("%d\n" ,printf("%d, %d", 245, -952));
 	printf("%d\n" ,ft_printf("%S", L"😼"));
 	printf("%d\n", printf("%S", L"😼"));
 	printf("%d\n" ,ft_printf("miaouu%S", L"😼"));
@@ -54,6 +146,8 @@ int	main(void)
 	printf("%d\n",printf("%S", L"ooo ❤ ☀ ☆ ☂ ☻ ♞ ☯ ☭ ☢ € dddd"));
 	printf("%d\n" ,ft_printf("%s %c", "Coucou", 'z'));
 	printf("%d\n",printf("%s %c", "Coucou", 'z'));
+	printf("%d\n" ,ft_printf("%#o", 12));
+	printf("%d\n" ,printf("%#o", 12));
 	int nbr2 = 99;
 	printf("%d\n" ,ft_printf("666%p", &nbr2));
 	printf("%d\n" ,printf("666%p", &nbr2));
@@ -89,20 +183,12 @@ int	main(void)
 	printf("%d\n" ,printf("%-10s %-10S %-10c", "Coucou", L"aaa", 'z'));
 	printf("%d\n" ,ft_printf("%-10s %-10S %-10c", "Coucou", L"aaa", 'z'));
 	printf("%d\n" ,printf("%-10s %-10S %-10c", "Coucou", L"aaa", 'z'));
-	printf("%d\n" ,ft_printf("%+i %+i % i % i", 321, -321, 321, -321));
-	printf("%d\n" ,printf("%+i %+i % i % i", 321, -321, 321, -321));
-	printf("%d\n" ,ft_printf("%#o", 12));
-	printf("%d\n" ,printf("%#o", 12));
-	printf("%d\n" ,ft_printf("%10i", 12));
-	printf("%d\n" ,printf("%10i", 12));
 	printf("%d\n" ,ft_printf("%10u", 12));
 	printf("%d\n" ,printf("%10u", 12));
 	printf("%d\n" ,ft_printf("%010u", 12));
 	printf("%d\n" ,printf("%010u", 12));
 	printf("%d\n" ,ft_printf("%05s", "pouet"));
 	printf("%d\n" ,printf("%05s", "pouet"));
-	printf("%d\n" ,ft_printf("%.12d", 42));
-	printf("%d\n" ,printf("%.12d", 42));
 	printf("%d\n" ,ft_printf("%.15x", 9584));
 	printf("%d\n" ,printf("%.15x", 9584));
 	printf("%d\n" ,ft_printf("%.5i", 42));
@@ -121,8 +207,6 @@ int	main(void)
 	printf("%d\n" ,printf("%C", 0));
 	printf("%d\n" ,ft_printf("%hhC, %hhC", 'a', L'米'));
 	printf("%d\n" ,printf("%hhC, %hhC", 'a', L'米'));
-	printf("%d\n" ,ft_printf("{%-10d}", 42));
-	printf("%d\n" ,printf("{%-10d}", 42));
 	printf("%d\n" ,ft_printf("{%Z}", 123));
 	printf("%d\n" ,printf("{%Z}", 123));
 	printf("%d\n" ,ft_printf("{%-15Z}", 123));
@@ -137,10 +221,6 @@ int	main(void)
 	printf("%d\n" ,printf("%.c", 0));
 	printf("%d\n" ,ft_printf("%#.4o", 4));
 	printf("%d\n" ,printf("%#.4o", 4));
-	printf("%d\n" ,ft_printf("%.4d", 42));
-	printf("%d\n" ,printf("%.4d", 42));
-	printf("%d\n" ,ft_printf("%.4d", 424242));
-	printf("%d\n" ,printf("%.4d", 424242));
 	printf("%d\n" ,ft_printf("%.4o", 424242));
 	printf("%d\n" ,printf("%.4o", 424242));
 	printf("%d\n" ,ft_printf("test %c test", 0));
@@ -185,16 +265,10 @@ int	main(void)
 	printf("%d\n" ,ft_printf("%15.4o", 42));
 	printf("%d\n" ,printf("%.4s", "42 is the answer"));
 	printf("%d\n" ,ft_printf("%.4s", "42 is the answer"));
-	printf("%d\n" ,printf("%15.4d", 42));
-	printf("%d\n" ,ft_printf("%15.4d", 42));
 	printf("%d\n" ,printf("{%0-3u}", 0));
 	printf("%d\n" ,ft_printf("{%0-3u}", 0));
-	printf("%d\n" ,printf("{%0-3d}", 0));
-	printf("%d\n" ,ft_printf("{%0-3d}", 0));
 	printf("%d\n" ,printf("{%03u}", 0));
 	printf("%d\n" ,ft_printf("{%03u}", 0));
-	printf("%d\n" ,printf("{%03d}", 0));
-	printf("%d\n" ,ft_printf("{%03d}", 0));
 	printf("%d\n" ,printf("{% c}", 0));
 	printf("%d\n" ,ft_printf("{% c}", 0));
 	printf("%d\n" ,printf("%+o", 0));
@@ -217,22 +291,12 @@ int	main(void)
 	printf("%d\n" ,ft_printf("{%03c}", 0));
 	printf("%d\n" ,printf("{%03c}", 1));
 	printf("%d\n" ,ft_printf("{%03c}", 1));
-	printf("%d\n" ,printf("{%10d}", -42));
-	printf("%d\n" ,printf("{%10d}", -42));
 	printf("%d\n" ,ft_printf("%hhC, %hhC", 0, L'米'));
 	printf("%d\n" ,printf("%hhC, %hhC", 0, L'米'));
 	printf("%d\n" ,ft_printf("%p", 0));
 	printf("%d\n" ,printf("%p", 0));
 	printf("%d\n" ,ft_printf("{%5p}", 0));
 	printf("%d\n" ,printf("{%5p}", 0));
-	printf("%d\n" ,ft_printf("{%010d}", -42));
-	printf("%d\n" ,printf("{%010d}", -42));
-	printf("%d\n" ,ft_printf("{% 03d}", 0));
-	printf("%d\n" ,printf("{% 03d}", 0));
-	printf("%d\n" ,printf("%15.4d", 4));
-	printf("%d\n" ,ft_printf("%15.4d", 4));
-	printf("%d\n" ,printf("%15.4d", 424242));
-	printf("%d\n" ,ft_printf("%15.4d", 424242));
 	printf("%d\n" ,printf("%15.4o", 424242));
 	printf("%d\n" ,ft_printf("%15.4o", 424242));
 	printf("%d\n" ,printf("%4.15s", "I am 42"));
@@ -261,40 +325,6 @@ int	main(void)
 	printf("%d\n" ,ft_printf("{%30S}", L"我是一只猫。"));
 	printf("%d\n" ,printf("{%030S}", L"我是一只猫。"));
 	printf("%d\n" ,ft_printf("{%030S}", L"我是一只猫。"));
-	printf("%d\n" ,printf("{%10.5d}", 9));
-	printf("%d\n" ,ft_printf("{%10.5d}", 9));
-	printf("%d\n" ,printf("{%03.2d}", 9));
-	printf("%d\n" ,ft_printf("{%03.2d}", 9));
-	printf("%d\n" ,printf("{%03.5d}", 9));
-	printf("%d\n" ,ft_printf("{%03.5d}", 9));
-	printf("%d\n" ,printf("{%03.10d}", 9));
-	printf("%d\n" ,ft_printf("{%03.10d}", 9));
-	printf("%d\n" ,printf("{%03.2d}", 0));
-	printf("%d\n" ,ft_printf("{%03.2d}", 0));
-	printf("%d\n" ,printf("{%020.8d}", 42));
-	printf("%d\n" ,ft_printf("{%020.8d}", 42));
-	printf("%d\n" ,printf("{%020.5d}", 42));
-	printf("%d\n" ,ft_printf("{%020.5d}", 42));
-	printf("%d\n" ,printf("{%20.5d}", 42));
-	printf("%d\n" ,ft_printf("{%20.5d}", 42));
-	printf("%d\n" ,printf("{%.20d}", 42));
-	printf("%d\n" ,ft_printf("{%.20d}", 42));
-	printf("%d\n" ,printf("{%020d}", 42));
-	printf("%d\n" ,ft_printf("{%020d}", 42));
-	printf("%d\n" ,printf("{%015.20d}", 42));
-	printf("%d\n" ,ft_printf("{%015.20d}", 42));
-	printf("%d\n" ,printf("{%-020.8d}", 42));
-	printf("%d\n" ,ft_printf("{%-020.8d}", 42));
-	printf("%d\n" ,printf("{%-020.5d}", 42));
-	printf("%d\n" ,printf("{%-020.5d}", 42));
-	printf("%d\n" ,ft_printf("{%-20.5d}", 42));
-	printf("%d\n" ,printf("{%-20.5d}", 42));
-	printf("%d\n" ,ft_printf("{%-.20d}", 42));
-	printf("%d\n" ,printf("{%-.20d}", 42));
-	printf("%d\n" ,ft_printf("{%-020d}", 42));
-	printf("%d\n" ,printf("{%-020d}", 42));
-	printf("%d\n" ,ft_printf("{%-015.20d}", 42));
-	printf("%d\n" ,printf("{%-015.20d}", 42));
 	printf("%d\n" ,ft_printf("{%10.5u}", 9));
 	printf("%d\n" ,printf("{%10.5u}", 9));
 	printf("%d\n" ,ft_printf("{%03.2u}", 9));
@@ -331,8 +361,6 @@ int	main(void)
 	printf("%d\n" ,printf("{%-015.20u}", 42));
 	printf("%d\n" ,ft_printf("->%.1p, %.p", 0, 1));
 	printf("%d\n" ,printf("->%.1p, %.p", 0, 1));
-	printf("%d\n" ,ft_printf("%.d, %.0d", 0, 0));
-	printf("%d\n" ,printf("%.d, %.0d", 0, 0));
 	printf("%d\n" ,ft_printf("%.4s", "yaaaaaaaaa"));
 	printf("%d\n" ,printf("%.4s", "yaaaaaaaaa"));
 	printf("%d\n" ,ft_printf("%.4S", L"我是一只猫。"));
@@ -359,14 +387,6 @@ int	main(void)
 	printf("%d\n" ,printf("%5.2s is a string", ""));
 	printf("%d\n" ,ft_printf("%-5.2s is a string", "this"));
 	printf("%d\n" ,printf("%-5.2s is a string", "this"));
-	printf("%d\n" ,ft_printf("% 10.5d", 4242));
-	printf("%d\n" ,printf("% 10.5d", 4242));
-	printf("%d\n" ,ft_printf("%+10.5d", 4242));
-	printf("%d\n" ,printf("%+10.5d", 4242));
-	printf("%d\n" ,ft_printf("%10.5d", -4242));
-	printf("%d\n" ,printf("%10.5d", -4242));
-	printf("%d\n" ,ft_printf("%03.2d", -1));
-	printf("%d\n" ,printf("%03.2d", -1));
 	printf("%d\n" ,ft_printf("%.5C", 0));
 	printf("%d\n" ,printf("%.5C", 0));
 	printf("%d\n" ,ft_printf("%.5C", L'a'));
@@ -375,8 +395,6 @@ int	main(void)
 	printf("%d\n" ,printf("%.5S", L"a"));
 	printf("%d\n" ,ft_printf("%15.4s", "42"));
 	printf("%d\n" ,printf("%15.4s", "42"));
-	printf("%d\n" ,ft_printf("%.10d", -42));
-	printf("%d\n" ,printf("%.10d", -42));
 	printf("%d\n" ,ft_printf("%15.4S", L"ééééééééééé"));
 	printf("%d\n" ,printf("%15.4S", L"ééééééééééé"));
 	printf("%d\n" ,ft_printf("%15.4S", L"éééééééééééééééééééé"));
@@ -403,12 +421,17 @@ int	main(void)
 	printf("%d\n" ,printf("%%   %", "test"));
 	printf("%d\n" ,ft_printf("%4.s", "42"));
 	printf("%d\n" ,printf("%4.s", "42"));
+
+	ft_putstr("\n*********************************************\n");
 	printf("%d\n" ,ft_printf("{%05.s}", 0));
 	printf("%d\n" ,printf("{%05.s}", 0));
+
 	printf("%d\n" ,ft_printf("{%05.s}", "(nule)"));
 	printf("%d\n" ,printf("{%05.s}", "(nule)"));
+	
 	printf("%d\n" ,ft_printf("{%5.s}", "(nule)"));
 	printf("%d\n" ,printf("{%5.s}", "(nule)"));
+
 	printf("%d\n" ,ft_printf("{%5s}", "(nule)"));
 	printf("%d\n" ,printf("{%5s}", "(nule)"));
 	printf("%d\n" ,ft_printf("{%.5s}", "(nule)"));
@@ -425,8 +448,10 @@ int	main(void)
 	printf("%d\n" ,printf("{%S}", 0));
 	printf("%d\n" ,ft_printf("{% s}", NULL));
 	printf("%d\n" ,printf("{% s}", NULL));
+
 	printf("%d\n" ,ft_printf("{%05.%}", 0));
 	printf("%d\n" ,printf("{%05.%}", 0));
+
 	printf("%d\n" ,ft_printf("{%05.Z}", 0));
 	printf("%d\n" ,printf("{%05.Z}", 0));
 	printf("%d\n" ,ft_printf("%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C \
@@ -457,11 +482,7 @@ int	main(void)
 	printf("%d\n" ,printf("@moulitest: %5.x %5.0x", 0, 0));
 	printf("%d\n" ,ft_printf("@moulitest: %5.o %5.0o", 0, 0));
 	printf("%d\n" ,printf("@moulitest: %5.o %5.0o", 0, 0));
-	printf("%d\n" ,ft_printf("@moulitest: %.d %.0d", 42, 43));
-	printf("%d\n" ,printf("@moulitest: %.d %.0d", 42, 43));
-	printf("%d\n" ,ft_printf("@moulitest: %5.d %5.0d", 0, 0));
-	printf("%d\n" ,printf("@moulitest: %5.d %5.0d", 0, 0));
-	// Comportements indéfini
+*/	// Comportements indéfini
 	/*printf("%d\n" ,ft_printf("%ll#x", 9223372036854775807));
 	printf("%d\n" ,ft_printf("%5+d", 42));
 	printf("%d\n" ,ft_printf("%5+d", -42));
@@ -484,7 +505,7 @@ int	main(void)
 	
 	// Alway return -1 now.
 	//max utf-8
-	printf("%d\n" ,ft_printf("%C", 1114112));
+/*	printf("%d\n" ,ft_printf("%C", 1114112));
 	printf("%d\n" ,printf("%C", 1114112));
 	printf("%d\n" ,ft_printf("test"));
 	printf("%d\n" ,printf("test"));
@@ -503,7 +524,7 @@ int	main(void)
 	//invalid str   troug
 	printf("%d\n" ,ft_printf("%C %C", 55296, 57343));
 	printf("%d\n" ,printf("%C %C", 55296, 57343));
-
+*/
 
 	/*int *strunicode = L"a";
 	while (unicode < (unsigned int)-1)

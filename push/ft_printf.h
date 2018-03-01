@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 13:11:55 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/27 13:59:00 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:34:19 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,10 @@ typedef struct	s_fotmat
 int				ft_printf(const char *format, ...);
 int				ft_put_param(va_list *ap, char *str, t_format *format);
 
+void			ft_switch_type(t_format *format, va_list *ap);
+
 int				ft_is_conversion_type(char c);
-int				ft_get_parssing(char *str);
+int				ft_get_parssing_format(char *str, t_format *format);
 
 void			ft_convert_string(t_format *format, va_list *ap);
 void			ft_convert_char(t_format *format, va_list *ap);
@@ -73,8 +75,10 @@ int				ft_put_buf(const char c, int option);
 
 void			ft_format_init(t_format *format);
 
-void			ft_put_nbr(long nbr, t_format *format);
+void			ft_put_nbr(long nbr, t_format *format, int nbr_0, int size_ret);
 
 long			ft_get_convertion_d(int data, t_convert convert);
+
+void			ft_convert_percent(t_format *format, va_list *ap);
 
 #endif

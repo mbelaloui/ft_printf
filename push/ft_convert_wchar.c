@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_conversion_type.c                            :+:      :+:    :+:   */
+/*   ft_convert_wchar.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/03 17:38:14 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/01 16:39:44 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/02/28 13:10:05 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/02/28 13:10:25 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_is_conversion_type(char c)
+void	ft_convert_wchar(t_format *format, va_list *ap)
 {
-	if (c == 's' || c == 'd' || c == 'c' || c == 'i')// || c == '%')
-		return (1);
-	return (0);
+
 }

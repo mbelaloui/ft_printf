@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_conversion_type.c                            :+:      :+:    :+:   */
+/*   ft_convert_pointer.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/03 17:38:14 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/01 16:39:44 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/02/28 13:05:06 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/02/28 13:05:59 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_is_conversion_type(char c)
+void	ft_convert_pointer(t_format *format, va_list *ap)
 {
-	if (c == 's' || c == 'd' || c == 'c' || c == 'i')// || c == '%')
-		return (1);
-	return (0);
 }

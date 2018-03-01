@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test_decimal.c                                  :+:      :+:    :+:   */
+/*   ft_test_octal.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/02 16:31:38 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/01 10:59:33 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/02/27 14:46:55 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/02/27 15:49:18 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../test.h"
 
@@ -155,7 +156,7 @@ static int		run_test(int decimal, char **format, int *num_test, int accuracy, ch
 }
 
 
-void		ft_test_decimal(int decimal)
+void		ft_test_octal(int decimal)
 {
 	//int nbr_test_ok = 0;
 
@@ -168,25 +169,25 @@ void		ft_test_decimal(int decimal)
 
 	char *decimal_simple_title	
 		= "\t----------------------- simple decimal -------------------------\n";
-	char *decimal_simple						= "%d";
+	char *decimal_simple						= "%o";
 	char *decimal_simple_dash_title
 		= "\t----------------- decimal with >\"dash\"< ----------------------\n";
-	char *decimal_with_dash						= "%-d";
+	char *decimal_with_dash						= "%-o";
 
 
 	char *decimal_simple_minlen_precision_title
 		= "\t--------- decimal with \"min_len\" and \"precision\" -----------\n";
-	char *decimal_with_minlen_precision			= "%*.*d";
+	char *decimal_with_minlen_precision			= "%*.*o";
 	char *decimal_simple_dash_minlen_precision_title
 		= "\t----- decimal with \"dash\", \"min_len\" and \"precision\" -----\n";
-	char *decimal_with_dash_minlen_precision	= "%-*.*d";
+	char *decimal_with_dash_minlen_precision	= "%-*.*o";
 
 	char *decimal_simple_minlen_title
 		= "\t------------- decimal with only \"min_len\" --------------------\n";
-	char *decimal_with_minlen			= "%0-*d";
+	char *decimal_with_minlen			= "%*o";
 	char *decimal_simple_precision_title
 		= "\t----- decimal with  only \"precision\" -----\n";
-	char *decimal_with_precision	= "%0-.*d";
+	char *decimal_with_precision	= "%.*o";
 
 	simple_decimal_format[0] = decimal_simple;
 	simple_decimal_format[1] = decimal_with_dash;
@@ -212,16 +213,16 @@ void		ft_test_decimal(int decimal)
 
 	char *decimal_plus_title
 		= "\t---------------------- decimal with \"+\" -----------------------\n";
-	char *decimal_with_plus			= "%+d";
+	char *decimal_with_plus			= "%+o";
 	char *decimal_plus_dash_title
 		= "\t--------------- decimal with \"dash\" and \"+\" -----------------\n";
-	char *decimal_with_plus_dash	= "%+-d";
+	char *decimal_with_plus_dash	= "%+-o";
 	char *decimal_plus_minlen_precision_title
 		= "\t------- decimal with \"+\", \"min_len\" and \"precision\" -------\n";
-	char *decimal_with_plus_minlen_precision= "%+*.*d";
+	char *decimal_with_plus_minlen_precision= "%+*.*o";
 	char *decimal_plus_dash_minlen_precision_title
 		= "\t-- decimal with \"+\", \"dash\", \"min_len\" and \"precision\" --\n";
-	char *decimal_with_plus_dash_minlen_precision	= "%+-*.*d";
+	char *decimal_with_plus_dash_minlen_precision	= "%+-*.*o";
 
 	decimal_plus_format[0] = decimal_with_plus;;
 	decimal_plus_format[1] = decimal_with_plus_dash;
@@ -241,16 +242,16 @@ void		ft_test_decimal(int decimal)
 
 	char *decimal_zero_title
 		= "\t----------------------- decimal with \"0\" ----------------------\n";
-	char *decimal_with_zero	= "%0d";
+	char *decimal_with_zero	= "%0o";
 	char *decimal_zero_dash_title
 		= "\t---------------- decimal with \"0\" and \"dash\" ----------------\n";
-	char *decimal_with_zero_dash		= "%0-d";
+	char *decimal_with_zero_dash		= "%0-o";
 	char *decimal_zero_minlen_precision_title
 		= "\t------- decimal with \"0\", \"min_len\" and \"precision\" -------\n";
-	char *decimal_with_zero_minlen_precision	= "%0*.*d";
+	char *decimal_with_zero_minlen_precision	= "%0*.*o";
 	char *decimal_zero_dash_minlen_precision_title
 		= "\t-- decimal with \"dash\", \"0\", \"min_len\" and \"precision\" --\n";
-	char *decimal_with_zero_dash_minlen_precision= "%-0*.*d";
+	char *decimal_with_zero_dash_minlen_precision= "%-0*.*o";
 
 	decimal_zero_format[0] = decimal_with_zero;;
 	decimal_zero_format[1] = decimal_with_zero_dash;
@@ -271,16 +272,16 @@ void		ft_test_decimal(int decimal)
 
 	char *decimal_zero_plus_title
 		= "\t---------------- decimal with \"0\" ans \"+\" -------------------\n";
-	char *decimal_with_zero_plus= "%0+d";
+	char *decimal_with_zero_plus= "%0+o";
 	char *decimal_zero_plus_dash_title
 		= "\t------------ decimal with \"0\", \"+\" and \"dash\" -------------\n";
-	char *decimal_with_zero_plus_dash		= "%0+-d";
+	char *decimal_with_zero_plus_dash		= "%0+-o";
 	char *decimal_zero_plus_minlen_precision_title
 		= "\t--- decimal with \"0\", \"+\", \"min_len\" and \"precision\" ----\n";
-	char *decimal_with_zero_plus_minlen_precision	= "%0+*.*d";
+	char *decimal_with_zero_plus_minlen_precision	= "%0+*.*o";
 	char *decimal_zero_plus_dash_minlen_precision_title
 		= "\t- decimal with \"dash\", \"0\", \"+\", \"min_len\" and \"precision\" -\n";
-	char *decimal_with_zero_plus_dash_minlen_precision= "%-0+*.*d";
+	char *decimal_with_zero_plus_dash_minlen_precision= "%-0+*.*o";
 
 	decimal_zero_plus_format[0] = decimal_with_zero_plus;
 	decimal_zero_plus_format[1] = decimal_with_zero_plus_dash;
@@ -300,16 +301,16 @@ void		ft_test_decimal(int decimal)
 
 	char *decimal_zero_space_title
 		= "\t---------------- decimal with \"0\" and \"space\" ---------------\n";
-	char *decimal_with_zero_space	= "%0 d";
+	char *decimal_with_zero_space	= "%0 o";
 	char *decimal_zero_dash_space_title
 		= "\t----------- decimal with \"0\", \"space\" and \"dash\"-----------\n";
-	char *decimal_with_zero_space_dash		= "%0 -d";
+	char *decimal_with_zero_space_dash		= "%0 -o";
 	char *decimal_zero_space_minlen_precision_title
 		= "\t------- decimal with \"0\", \"space\", \"min_len\" and \"precision\" -------\n";
-	char *decimal_with_zero_space_minlen_precision	= "%0 *.*d";
+	char *decimal_with_zero_space_minlen_precision	= "%0 *.*o";
 	char *decimal_zero_space_dash_minlen_precision_title
 		= "\t-- decimal with \"dash\", \"0\", \"space\', \"min_len\" and \"precision\" --\n";
-	char *decimal_with_dash_zero_minlen_precision= "%-0 *.*d";
+	char *decimal_with_dash_zero_minlen_precision= "%-0 *.*o";
 
 	decimal_zero_space_format[0] = decimal_with_zero_space;
 	decimal_zero_space_format[1] = decimal_with_zero_space_dash;
@@ -329,16 +330,16 @@ void		ft_test_decimal(int decimal)
 
 	char *decimal_zero_space_plus_title
 		= "\t------------ decimal with \"0\", \"space\" and \"+\" ------------\n";
-	char *decimal_with_zero_space_plus	= "%0 +d";
+	char *decimal_with_zero_space_plus	= "%0 +o";
 	char *decimal_zero_space_dash_plus_title
 		= "\t------- decimal with \"0\", \"space\", \"dash\" and \"+\" -------\n";
-	char *decimal_with_zero_space_dash_plus		= "%0 -+d";
+	char *decimal_with_zero_space_dash_plus		= "%0 -+o";
 	char *decimal_zero_space_minlen_precision_plus_title
 		= "\t-- decimal with \"0\", \"space\", \"+\", \"min_len\", and \"precision\" --\n";
-	char *decimal_with_zero_space_plus_minlen_precision	= "%0 +*.*d";
+	char *decimal_with_zero_space_plus_minlen_precision	= "%0 +*.*o";
 	char *decimal_zero_space_dash_plus_minlen_precision_title
 		= "\t-- decimal with \"dash\", \"0\", \"space\', \"+\", \"min_len\" and \"precision\" --\n";
-	char *decimal_with_dash_zero_plus_minlen_precision= "%-0 +*.*d";
+	char *decimal_with_dash_zero_plus_minlen_precision= "%-0 +*.*o";
 
 	decimal_zero_space_plus_format[0] = decimal_with_zero_space_plus;
 	decimal_zero_space_plus_format[1] = decimal_with_zero_space_dash_plus;
@@ -356,12 +357,12 @@ void		ft_test_decimal(int decimal)
 	char *decimal_conversion_format[6];
 	char *titles_conversion_hh[6];
 
-	char *decimal_simple_space_zero_apo								= "%'0 hhd";
-	char *decimal_with_dash_space_zero_apo							= "%'0 -hhd";
-	char *decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*hhd";
-	char *decimal_with_plus_dash_minlen_precision_space_zero_apo	= "%'+-0 *.*hhd";
-	char *decimal_with_minlen_space_zero_apo						= "%'0 *hhd";
-	char *decimal_with_precision_space_zero_apo						= "%'0 .*hhd";
+	char *decimal_simple_space_zero_apo								= "%'0 hho";
+	char *decimal_with_dash_space_zero_apo							= "%'0 -hho";
+	char *decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*hho";
+	char *decimal_with_plus_dash_minlen_precision_space_zero_apo	= "%'+-0 *.*hho";
+	char *decimal_with_minlen_space_zero_apo						= "%'0 *hho";
+	char *decimal_with_precision_space_zero_apo						= "%'0 .*hho";
 	
 	char *decimal_zero_space_dash_title 	= 
 		"\t-------------- decimal with \"dash\", \"0\", \"space\' ----------\n";
@@ -389,12 +390,12 @@ void		ft_test_decimal(int decimal)
 	succeed += run_test_minlenght_precision(decimal, decimal_conversion_format,
 			&num_test, accuracy, titles_conversion_hh);
 
-	decimal_simple_space_zero_apo								= "%'0 hd";
-	decimal_with_dash_space_zero_apo							= "%'0 -hd";
-	decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*hd";
-	decimal_with_plus_dash_minlen_precision_space_zero_apo	= "%'+-0 *.*hd";
+	decimal_simple_space_zero_apo								= "%'0 ho";
+	decimal_with_dash_space_zero_apo							= "%'0 -ho";
+	decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*ho";
+	decimal_with_plus_dash_minlen_precision_space_zero_apo	= "%'+-0 *.*ho";
 	decimal_with_minlen_space_zero_apo						= "%'0 *hd";
-	decimal_with_precision_space_zero_apo						= "%'0 .*hd";
+	decimal_with_precision_space_zero_apo						= "%'0 .*ho";
 
 	decimal_conversion_format[0] = decimal_simple_space_zero_apo;
 	decimal_conversion_format[1] = decimal_with_dash_space_zero_apo;
@@ -415,12 +416,12 @@ void		ft_test_decimal(int decimal)
 	succeed += run_test_minlenght_precision(decimal, decimal_conversion_format,
 			&num_test, accuracy, titles_conversion_hh);
 
-	decimal_simple_space_zero_apo								= "%'0 jd";
-	decimal_with_dash_space_zero_apo							= "%'0 -jd";
-	decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*jd";
-	decimal_with_plus_dash_minlen_precision_space_zero_apo		= "%'+-0 *.*jd";
-	decimal_with_minlen_space_zero_apo							= "%'0 *jd";
-	decimal_with_precision_space_zero_apo						= "%'0 .*jd";
+	decimal_simple_space_zero_apo								= "%'0 jo";
+	decimal_with_dash_space_zero_apo							= "%'0 -jo";
+	decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*jo";
+	decimal_with_plus_dash_minlen_precision_space_zero_apo		= "%'+-0 *.*jo";
+	decimal_with_minlen_space_zero_apo							= "%'0 *jo";
+	decimal_with_precision_space_zero_apo						= "%'0 .*jo";
 
 	decimal_conversion_format[0] = decimal_simple_space_zero_apo;
 	decimal_conversion_format[1] = decimal_with_dash_space_zero_apo;
@@ -443,12 +444,12 @@ void		ft_test_decimal(int decimal)
 
 
 
-	decimal_simple_space_zero_apo								= "%'0 zd";
-	decimal_with_dash_space_zero_apo							= "%'0 -zd";
-	decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*zd";
-	decimal_with_plus_dash_minlen_precision_space_zero_apo		= "%'+-0 *.*zd";
-	decimal_with_minlen_space_zero_apo							= "%'0 *zd";
-	decimal_with_precision_space_zero_apo						= "%'0 .*zd";
+	decimal_simple_space_zero_apo								= "%'0 zo";
+	decimal_with_dash_space_zero_apo							= "%'0 -zo";
+	decimal_with_minlen_precision_space_zero_apo				= "%'0 *.*zo";
+	decimal_with_plus_dash_minlen_precision_space_zero_apo		= "%'+-0 *.*zo";
+	decimal_with_minlen_space_zero_apo							= "%'0 *zo";
+	decimal_with_precision_space_zero_apo						= "%'0 .*zo";
 
 	decimal_conversion_format[0] = decimal_simple_space_zero_apo;
 	decimal_conversion_format[1] = decimal_with_dash_space_zero_apo;

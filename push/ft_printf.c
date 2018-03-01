@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 16:38:35 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/27 12:54:42 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:12:19 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static void	run(char *str, va_list *ap)
 	int			pt;
 	t_format	format;
 
-	ft_format_init(&format);
 	while (*str)
 	{
+	ft_format_init(&format);
 		while (*str && *str != '%')
 		{
 			ft_put_buf(*str, PUT_CHAR);

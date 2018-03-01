@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 12:58:24 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/26 14:02:17 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/28 18:04:33 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ static void		ft_generat_ret(t_format *format, char *temp)
 	int		shift;
 	int		nbr_char_put;
 	int		pt;
+	char	padd;
 
 	size_ret =  ft_max(format->len_temp, format->min_length);
 	shift = get_pt_start(format, &size_ret);
 	nbr_char_put = 0;
 	pt = 0;
-	nbr_char_put += put_string(shift, ' ');
+	padd = (format->flags.zero) ? '0' : ' ';
+	nbr_char_put += put_string(shift, padd);
 	while ((pt < format->precision) && (pt < size_ret))
 	{
 			ft_put_buf(temp[pt], PUT_CHAR);
@@ -50,23 +52,19 @@ static void		ft_generat_ret(t_format *format, char *temp)
 	}
 	nbr_char_put += pt;
 	put_string(format->min_length - nbr_char_put, ' ');
-/*	ft_putstr("\nat the begining <[shift :");
-	ft_putnbr(shift);
-	ft_putstr(", size_ret :");
-	ft_putnbr(size_ret);
-	ft_putstr(", nbr_char_put :");
-	ft_putnbr(nbr_char_put);
-	ft_putstr(", shift :");
-	ft_putnbr(shift);
-	ft_putstr(", pt :");
-	ft_putnbr(pt);
-	ft_putstr(", len_temp :");
-	ft_putnbr(format->len_temp);
-	ft_putstr(", precision :");
-	ft_putnbr(format->precision);
-	ft_putstr(", min_length :");
-	ft_putnbr(format->min_length);
-	ft_putstr("]\n");*/
+}
+
+static void		put_null()
+{
+	char *null;
+	int pt;
+
+	pt = -1;
+	null = "(null)";
+	while (null[++pt])
+	{
+		ft_put_buf(null[pt], PUT_CHAR);
+	}
 }
 
 void			ft_convert_string(t_format *format, va_list *ap)
@@ -77,7 +75,9 @@ void			ft_convert_string(t_format *format, va_list *ap)
 		format->min_length = va_arg(*ap, int);
 	if (format->precision == -2)
 		format->precision = va_arg(*ap, int);
-	temp = va_arg(*ap, char*);
+	temp = (char *)va_arg(*ap, char*);
+	if (temp == NULL)
+		temp = "(null)";
 	format->len_temp = ft_strlen(temp);
 	if (!format->is_there_precision  || format->len_temp < format->precision)
 		format->precision = format->len_temp;

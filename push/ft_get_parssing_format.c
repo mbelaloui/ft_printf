@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_conversion_type.c                            :+:      :+:    :+:   */
+/*   ft_get_parssing_format.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/03 17:38:14 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/01 16:39:44 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/02/28 12:16:28 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/03/01 16:39:33 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_is_conversion_type(char c)
+int			ft_get_parssing_format(char *str, t_format *format)
 {
-	if (c == 's' || c == 'd' || c == 'c' || c == 'i')// || c == '%')
-		return (1);
-	return (0);
+	int cp;
+
+	cp = 1;
+	while (str[cp] && !ft_is_conversion_type(str[cp]) && str[cp] != '%')
+		cp++;
+	if (str[cp] == '%' || !str[cp])
+		return (-1);
+	else
+		format->type = str[cp];
+	return (cp);
 }

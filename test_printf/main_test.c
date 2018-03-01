@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 18:50:17 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/27 14:08:01 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/01 11:00:00 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ int		main(void)
 		ft_test_decimal(beggin++);
 	}
 */	ft_test_decimal(0);
-	ft_test_decimal(-1);
+/*	ft_test_decimal(-1);
 	ft_test_decimal(42);
 	ft_test_decimal(-42);
 	ft_test_decimal(MAX_INT);
 	ft_test_decimal(MIN_INT);
+*/
+//	ft_test_octal(42);
 
 	return (0);
 }

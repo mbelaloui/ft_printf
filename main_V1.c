@@ -6,19 +6,126 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 12:20:56 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/26 16:02:15 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:32:22 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push/ft_printf.h"
+#include <math.h>
 
 int		main()
 {
 	char	*str = "%lc";
 	int		data = 1286;
 //	int		data = 123456;
+//
+	int ch;
 
-	data = -3;
+	char tab[20];
+	int fd = -100;
+
+	ft_bzero(tab, sizeof(tab));
+/*
+	if (isfinite(fd/0))
+		ft_putstr("ok");
+	else
+		ft_putstr("ko");
+*/
+	printf("%+ jd\n", MAX_INT *4);
+	fflush(stdout);
+	ft_printf("%+ jd\n", MAX_INT*4);
+	ft_printf("%+ d\n", MIN_INT);
+	ft_printf("%+ d\n", 0);
+	printf("%+ d\n", 0);
+	fflush(stdout);
+	ft_printf("%+ d\n", 42);
+	ft_printf("%+ d\n", -42);
+
+	printf("%+ 20jd\n", MAX_INT *4);
+	fflush(stdout);
+	ft_printf("%+ 20jd\n", MAX_INT*4);
+	ft_printf("%+ 20d\n", MIN_INT);
+	ft_printf("%+ 20d\n", 0);
+	printf("%+ 20d\n", 0);
+	fflush(stdout);
+	ft_printf("%+ 20d\n", 42);
+	ft_printf("%+ 20d\n", -42);
+	
+	printf("%+ .0jd\n", MAX_INT *4);
+	fflush(stdout);
+	ft_printf("%+ .0jd\n", MAX_INT*4);
+	ft_printf("%+ .0d\n", MIN_INT);
+	ft_printf("%+ .0d\n", 0);
+	printf("%+ .0d\n", 0);
+	fflush(stdout);
+	ft_printf("%+ .0d\n", 42);
+	ft_printf("%+ .0d\n", -42);
+	
+
+	printf("%+ .20jd\n", MAX_INT *4);
+	fflush(stdout);
+	ft_printf("%+ .20jd\n", MAX_INT*4);
+	ft_printf("%+ .20d\n", MIN_INT);
+	ft_printf("%+ .20d\n", 0);
+	printf("%+ .20d\n", 0);
+	fflush(stdout);
+	ft_printf("%+ .20d\n", 42);
+	ft_printf("%+ .20d\n", -42);
+	
+	printf("%+ 30.0jd\n", MAX_INT *4);
+	fflush(stdout);
+	ft_printf("%+ 30.0jd\n", MAX_INT*4);
+	ft_printf("%+ 30.0d\n", MIN_INT);
+	ft_printf("%+ 30.0d\n", 42);
+	ft_printf("%+ 30.0d\n", -42);
+
+	ft_printf("%0 .d\n", 0);
+	   printf("%0 .d\n", 0);
+	fflush(stdout);
+	
+	ft_printf("%0 1.d\n", 0);
+	   printf("%0 1.d\n", 0);
+	fflush(stdout);
+	
+	ft_printf("%0 2.d\n", 0);
+	   printf("%0 2.d\n", 0);
+	fflush(stdout);
+	
+	ft_printf("%0 3.d\n", 0);
+	   printf("%0 3.d\n", 0);
+	fflush(stdout);
+//%'+-0 *.*jd	
+	ft_printf("%'+-0 5.0jd\n",0, 5,0,0);
+	   printf("%'+-0 5.0jd\n",0, 5,0,0);
+	fflush(stdout);
+
+	ft_printf("%03.2d\n",0, 5,0,0);
+	   printf("%03.2d\n",0, 5,0,0);
+	fflush(stdout);
+	
+	ft_printf("%1.0d\n",0, 5,0,0);
+	   printf("%1.0d\n",0, 5,0,0);
+	fflush(stdout);
+
+
+
+	   printf("-%-+.l 0hhhhhhhhhhhhh s-\n", "bonjour");
+	fflush(stdout);
+	ft_printf("-%-+.l 0hhhhhhhhhhhhh s-\n", "bonjour");
+	   printf("%%\n");
+	fflush(stdout);
+	ft_printf("%%\n");
+	   printf("% 3   %\n");
+	ft_printf("%  3  %\n");
+	fflush(stdout);
+/*	printf("%");
+	printf("%");
+	printf("%");
+	printf("%");
+	printf("%");
+	printf("%");
+	printf("%");
+/*	data = -3;
 	while (data <= 270)
 	{
 		ft_putnbr(data);
@@ -56,6 +163,6 @@ int		main()
 		if (data == 130)
 			data = 250;
 //		ft_temporize(1);
-	}
+	}*/
 	return (0);
 }

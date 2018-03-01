@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/03 12:17:10 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/23 17:36:46 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/02/27 14:45:49 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 void	ft_test_string(const char *str);
 void	ft_test_char(const char *c);
 void	ft_test_decimal(const int decimal);
+void	ft_test_octal(const int decimal);
 void	ft_test_int(const int decimal);
 
 int		ft_test_String_simple_flag(const char *str, const char *format, int *num_test);

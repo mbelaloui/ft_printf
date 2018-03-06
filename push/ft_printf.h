@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 13:11:55 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/01 16:34:19 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/06 14:23:58 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 # include "../../../../libft/libft.h"
 # include <stdarg.h>
 
+# include "color/ft_color.h"
+
 #define		SIZE_BUF	80
 #define		EOL			0
 #define		PUT_CHAR	1
 #define		RESET		-1
 #define		ING			2
 
+#define		SIZE_TAB_CONV 128
 
 typedef struct	s_flags
 {
@@ -65,6 +68,9 @@ int				ft_get_parssing_format(char *str, t_format *format);
 void			ft_convert_string(t_format *format, va_list *ap);
 void			ft_convert_char(t_format *format, va_list *ap);
 void			ft_convert_decimal(t_format *format, va_list *ap);
+void			ft_convert_octal(t_format *format, va_list *ap);
+void			ft_convert_hexa(t_format *format, va_list *ap);
+void			ft_convert_unsigned(t_format *format, va_list *ap);
 
 int				is_valid(t_format *format);
 void			ft_put_flags(t_flags *flags);
@@ -74,7 +80,6 @@ void			ft_put_convertion(t_convert *convertion);
 int				ft_put_buf(const char c, int option);
 
 void			ft_format_init(t_format *format);
-
 void			ft_put_nbr(long nbr, t_format *format, int nbr_0, int size_ret);
 
 long			ft_get_convertion_d(int data, t_convert convert);

@@ -6,12 +6,13 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 12:20:56 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/01 16:32:22 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/06 14:25:42 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push/ft_printf.h"
 #include <math.h>
+
 
 int		main()
 {
@@ -31,7 +32,7 @@ int		main()
 	else
 		ft_putstr("ko");
 */
-	printf("%+ jd\n", MAX_INT *4);
+/*	printf("%+ jd\n", MAX_INT *4);
 	fflush(stdout);
 	ft_printf("%+ jd\n", MAX_INT*4);
 	ft_printf("%+ d\n", MIN_INT);
@@ -118,7 +119,95 @@ int		main()
 	   printf("% 3   %\n");
 	ft_printf("%  3  %\n");
 	fflush(stdout);
-/*	printf("%");
+*/
+
+	int val = MIN_INT;
+/*
+	ft_printf("%o\n", val);
+	   printf("%o\n", val);
+
+
+
+	ft_printf("%+*.*o\n",0, 0,val);
+	   printf("%+*.*o\n",0, 0,val);
+	fflush(stdout);
+	ft_printf("%+*.*o\n",1, 0,val);
+	   printf("%+*.*o\n",1, 0,val);
+	fflush(stdout);
+	ft_printf("%+*.*o\n",2, 0,val);
+	   printf("%+*.*o\n",2, 0,val);
+	fflush(stdout);
+	ft_printf("%+*.*o\n",3, 0,val);
+	   printf("%+*.*o\n",3, 0,val);
+	fflush(stdout);
+	ft_printf("%+0*.*o\n",6, 0,val);
+	   printf("%+0*.*o\n",6, 0,val);
+	fflush(stdout);
+*/
+	ft_printf("%x\n", val);
+	   printf("%x\n", val);
+
+
+
+	ft_printf("%+*.*x\n",0, 0,val);
+	   printf("%+*.*x\n",0, 0,val);
+	fflush(stdout);
+	ft_printf("%+*.*x\n",1, 0,val);
+	   printf("%+*.*x\n",1, 0,val);
+	fflush(stdout);
+	ft_printf("%+*.*x\n",2, 0,val);
+	   printf("%+*.*x\n",2, 0,val);
+	fflush(stdout);
+	ft_printf("%+*.*x\n",3, 0,val);
+	   printf("%+*.*x\n",3, 0,val);
+	fflush(stdout);
+	ft_printf("%+0*.*x\n",6, 0,val);
+	   printf("%+0*.*x\n",6, 0,val);
+	fflush(stdout);
+
+
+/*
+	ft_printf("%o\n",12);
+	   printf("%o\n",12);
+
+
+
+	ft_printf("%+*.*o\n",0, 0,12);
+	   printf("%+*.*o\n",0, 0,12);
+//	fflush(stdout);
+	ft_printf("%+*.*o\n",1, 0,12);
+	   printf("%+*.*o\n",1, 0,12);
+//	fflush(stdout);
+	ft_printf("%+*.*o\n",2, 0,12);
+	   printf("%+*.*o\n",2, 0,12);
+//	fflush(stdout);
+	ft_printf("%+*.*o\n",3, 0,12);
+	   printf("%+*.*o\n",3, 0,12);
+//	fflush(stdout);
+	ft_printf("%+*.*o\n",6, 0,12);
+	   printf("%+*.*o\n",6, 0,12);
+//	fflush(stdout);
+
+*/
+
+	ft_printf("|#        '# + - 0 15 L d'        : _%#0+---hh--hhh-++++++0015d_\n", MAX_INT);
+	   printf("|#        '# + - 0 15 L d'        : _%#0+---hh--hhh-++++++0015d_\n", MAX_INT);
+	fflush(stdout);
+
+//	char *format = " {BLU}sahit farou9  nom : {GREEN}%s{EOC} premom : {RED}%s{EOC}\n";
+//	char *format = "nom : {green}%s{eoc} premom : {red}%s{eoc}\n";
+//	char *format = "nom : green}%s{eoc} premom : {red}%s{eoc\n";
+//	char *format = "nom : {green}%s{ec} premom : {red}%s{eoc\n";
+//	char *format = "nom : {green}%s{ec} premom : {red%s{eoc\n";
+	char *format = "nom : {green}%s{Eoc} premom : {red}%s{eoc}\n";
+//	char *format = "nom : {green}%s{eoc} premom : {red%s{eoc}\n";
+//	char *format = "nom : {grEEn}%s{eOc} premom : {REd}%s{eoc}\n";
+	char *name1 ="belaloui";
+	char *name2 ="mehdi";
+	ft_printf(format, name1, name2);
+	
+
+	/*	printf("%");
 	printf("%");
 	printf("%");
 	printf("%");

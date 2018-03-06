@@ -6,56 +6,23 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 12:46:14 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/01 16:14:11 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/02 18:09:48 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		manage_space(long temp, t_format *frmt, int *pt, int shift)// mettre cettef onction dans ft_put_nbr.....
-{
-	char c;
-
-	c = (frmt->flags.zero) ? '0' : ' ';
-	if ((frmt->flags.space && temp >= 0) ||
-			(frmt->min_length == 1 && frmt->precision == 0 &&
-			 temp == 0 && !frmt->flags.plus))
-	{
-		ft_put_buf(' ', PUT_CHAR);
-		(*pt)++;
-		shift--;
-	}
-	while (!frmt->flags.dash && shift > 0)
-	{
-		ft_put_buf(c, PUT_CHAR);
-		shift--;
-		(*pt)++;
-	}
-}
-
-static void		ft_generat_ret(t_format *format, long temp) //sortie cette fonction seul
+static void		ft_generat_ret(t_format *format, long temp)
 {
 	int		size_ret;
-	int		nbr_0;
 	int		shift;
-	int		pt;
 
-	pt = ((format->flags.plus) || temp < 0) ? 1 : 0;
 	size_ret = ft_max(format->len_temp, format->precision);
 	size_ret = ft_max(size_ret, format->min_length);
 	shift = (size_ret - ft_max(format->len_temp, format->precision));
 	if (temp < 0 || format->flags.plus)
 		shift--;
-	nbr_0 = (format->precision - format->len_temp);
-	nbr_0 = (nbr_0 > 0) ? nbr_0 : 0;
-	manage_space(temp, format, &pt, shift);
-	pt += nbr_0;
-	ft_put_nbr(temp, format, nbr_0, size_ret);
-	while (pt + format->len_temp < size_ret)
-	{
-		ft_put_buf(' ', PUT_CHAR);
-		pt++;
-	}
+	ft_put_nbr(temp, format, shift, size_ret);
 }
 
 void			ft_convert_decimal(t_format *format, va_list *ap)

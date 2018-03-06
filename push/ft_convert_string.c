@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 12:58:24 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/02/28 18:04:33 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/02 15:02:47 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,6 @@ static void		ft_generat_ret(t_format *format, char *temp)
 	put_string(format->min_length - nbr_char_put, ' ');
 }
 
-static void		put_null()
-{
-	char *null;
-	int pt;
-
-	pt = -1;
-	null = "(null)";
-	while (null[++pt])
-	{
-		ft_put_buf(null[pt], PUT_CHAR);
-	}
-}
-
 void			ft_convert_string(t_format *format, va_list *ap)
 {
 	char	*temp;
@@ -83,35 +70,3 @@ void			ft_convert_string(t_format *format, va_list *ap)
 		format->precision = format->len_temp;
 	ft_generat_ret(format, temp);
 }
-
-/*
-	ft_putstr("\nat the begining <[shift :");
-	ft_putnbr(shift);
-	ft_putstr(", size_ret :");
-	ft_putnbr(size_ret);
-	ft_putstr(", nbr_char_put :");
-	ft_putnbr(nbr_char_put);
-	ft_putstr(", shift :");
-	ft_putnbr(shift);
-	ft_putstr(", pt :");
-	ft_putnbr(pt);
-	ft_putstr(", len_temp :");
-	ft_putnbr(format->len_temp);
-	ft_putstr(", precision :");
-	ft_putnbr(format->precision);
-	ft_putstr(", min_length :");
-	ft_putnbr(format->min_length);
-	ft_putstr("]\n");
-*/
-
-/*
-	ft_putstr("at the end      <[shift :");
-	ft_putnbr(shift);
-	ft_putstr(", size_ret :");
-	ft_putnbr(size_ret);
-	ft_putstr(", nbr_char_put :");
-	ft_putnbr(nbr_char_put);
-	ft_putstr(", pt :");
-	ft_putnbr(pt);
-	ft_putstr("]\n\t\t\t\t\t>");*/
-

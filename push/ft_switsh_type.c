@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 10:37:59 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/01 16:37:56 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:43:32 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,7 @@ void	ft_switch_type(t_format *format, va_list *ap)
 {
 	char *types;
 
-	//	ft_put_format(format);
-
-	//	ft_putstr("\n*******************\n");
-
 	manage_priority_flag(format);
-
-	//	ft_put_format(format);
-
 	types = "sSpdDioOuUxXcC";
 	if (format->type == 's')
 		ft_convert_string(format, ap);
@@ -44,19 +37,15 @@ void	ft_switch_type(t_format *format, va_list *ap)
 		ft_convert_decimal(format, ap);
 	if (format->type == 'c')
 		ft_convert_char(format, ap);
-	if (format->type == 'C')
-		ft_convert_char(format, ap);
+	if (format->type == 'o' || format->type == 'O')
+		ft_convert_octal(format, ap);
 	if (format->type == 'p')
 		ft_convert_char(format, ap);
-	if (format->type == 'h')
-		ft_convert_char(format, ap);
-	if (format->type == 'o')
-		ft_convert_char(format, ap);
-	if (format->type == 'u')
-		ft_convert_char(format, ap);
-/*	if (format->type == 'c')
-		ft_convert_char(format, ap);
-	if (format->type == 'c')
+	if (format->type == 'u' )
+		ft_convert_unsigned(format, ap);
+	if (format->type == 'x' || format->type == 'X')
+		ft_convert_hexa(format, ap);
+/*	if (format->type == 'C')
 		ft_convert_char(format, ap);
 	if (format->type == 'c')
 		ft_convert_char(format, ap);

@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 16:38:35 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/01 16:12:19 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:15:51 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@ static void	run(char *str, va_list *ap)
 
 	while (*str)
 	{
-	ft_format_init(&format);
-		while (*str && *str != '%')
+		pt = 0;
+		ft_format_init(&format);
+		while (*str && *str != '%' && *str != '{')
 		{
 			ft_put_buf(*str, PUT_CHAR);
 			str++;
 		}
 		if (*str == '%')
-		{
 			pt = ft_put_param(ap, str, &format);
-			str = str + pt;
-		}
+		if (*str == '{' || *str == '}')
+			pt = ft_get_color(str);
+		str = str + pt;	
 	}
 }
 

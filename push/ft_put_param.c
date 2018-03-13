@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:02:11 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/12 18:48:14 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/12 20:14:48 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int				ft_put_param(va_list *ap, char *str, t_format *format)
 	int			pt_end_of_format;
 
 	if ((pt_end_of_format = ft_get_parssing_format(str, format)) == -1)
-		return (1);
+		return (-1);
 	check_flags(str + 1, format, pt_end_of_format);
 	get_info(str, format, pt_end_of_format);
 	get_convertion(str, &(format->convertion), pt_end_of_format);

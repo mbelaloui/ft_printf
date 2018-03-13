@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 12:20:56 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/12 18:24:09 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/03/12 20:16:46 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,14 +190,16 @@ int		main()
 
 */
 
-	ft_putnbr(9223372036854775807);
+//	ft_putnbr(9223372036854775807);
+	ft_putnbr(ft_printf("&%  h&\n",6, 0,12));
+	   ft_putnbr(printf("+%  h+\n",6, 0,12));
 
-	ft_printf("|#        '# + - 0 15 L d'        : _%#0+---hh--hhh-++++++0015d_\n", MAX_INT);
+	ft_printf("\n|#        '# + - 0 15 L d'        : _%#0+---hh--hhh-++++++0015d_\n", MAX_INT);
 //	   printf("|#        '# + - 0 15 L d'        : _%#0+---hh--hhh-++++++0015d_\n", MAX_INT);
 //	fflush(stdout);
 
 //	char *format = " {BLU}sahit farou9  nom : {GREEN}%s{EOC} premom : {RED}%s{EOC}\n";
-	char *format = "nom : {green}%s{eoc} premom : {red}%s{eoc}\n";
+	char *format = "\nnom : {green}%s{eoc} premom : {red}%s{eoc}\n";
 //	char *format = "nom : green}%s{eoc} premom : {red}%s{eoc\n";
 //	char *format = "nom : {green}%s{ec} premom : {red}%s{eoc\n";
 //	char *format = "nom : {green}%s{ec} premom : {red%s{eoc\n";

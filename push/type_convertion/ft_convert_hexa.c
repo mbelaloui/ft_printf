@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 static int		put_string(int max_print, char print)
 {
@@ -65,7 +65,7 @@ void	ft_convert_hexa(t_format *format, va_list *ap)
 	else
 	{
 		temp = (va_arg(*ap, int));
-		temp = ft_get_convertion_d(temp, format->convertion);
+		temp = ft_get_convertion_size(temp, format->convertion);
 	}
 	if (format->type == 'X')
 		ft_decimal_to_base_stat(temp_tab,temp,EXA,UPPER);

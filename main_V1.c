@@ -16,23 +16,23 @@
 
 int		main()
 {
-//	char	*str = "%lc";
-//	int		data = 1286;
-//	int		data = 123456;
-//
-//	int ch;
+/*	char	*str = "%lc";
+	int		data = 1286;
+	int		data = 123456;
 
-//	char tab[20];
-//	int fd = -100;
+	int ch;
 
-//	ft_bzero(tab, sizeof(tab));
-/*
+	char tab[20];
+	int fd = -100;
+
+	ft_bzero(tab, sizeof(tab));
+
 	if (isfinite(fd/0))
 		ft_putstr("ok");
 	else
 		ft_putstr("ko");
-*/
-/*	printf("%+ jd\n", MAX_INT *4);
+
+	printf("%+ jd\n", MAX_INT *4);
 	fflush(stdout);
 	ft_printf("%+ jd\n", MAX_INT*4);
 	ft_printf("%+ d\n", MIN_INT);
@@ -95,7 +95,11 @@ int		main()
 	ft_printf("%0 3.d\n", 0);
 	   printf("%0 3.d\n", 0);
 	fflush(stdout);
-//%'+-0 *.*jd	
+	
+
+	%'+-0 *.*jd	
+
+
 	ft_printf("%'+-0 5.0jd\n",0, 5,0,0);
 	   printf("%'+-0 5.0jd\n",0, 5,0,0);
 	fflush(stdout);
@@ -119,10 +123,10 @@ int		main()
 	   printf("% 3   %\n");
 	ft_printf("%  3  %\n");
 	fflush(stdout);
-*/
 
-//	int val = MIN_INT;
-/*
+
+	int val = MIN_INT;
+
 	ft_printf("%o\n", val);
 	   printf("%o\n", val);
 
@@ -143,8 +147,8 @@ int		main()
 	ft_printf("%+0*.*o\n",6, 0,val);
 	   printf("%+0*.*o\n",6, 0,val);
 	fflush(stdout);
-*/
-/*	ft_printf("%x\n", val);
+
+	ft_printf("%x\n", val);
 	   printf("%x\n", val);
 
 
@@ -165,8 +169,8 @@ int		main()
 	   printf("%+0*.*x\n",6, 0,val);
 	fflush(stdout);
 
-*/
-/*
+
+
 	ft_printf("%o\n",12);
 	   printf("%o\n",12);
 
@@ -174,30 +178,37 @@ int		main()
 
 	ft_printf("%+*.*o\n",0, 0,12);
 	   printf("%+*.*o\n",0, 0,12);
-//	fflush(stdout);
+	fflush(stdout);
 	ft_printf("%+*.*o\n",1, 0,12);
 	   printf("%+*.*o\n",1, 0,12);
-//	fflush(stdout);
+	fflush(stdout);
 	ft_printf("%+*.*o\n",2, 0,12);
 	   printf("%+*.*o\n",2, 0,12);
-//	fflush(stdout);
+	fflush(stdout);
 	ft_printf("%+*.*o\n",3, 0,12);
 	   printf("%+*.*o\n",3, 0,12);
-//	fflush(stdout);
+	fflush(stdout);
 	ft_printf("%+*.*o\n",6, 0,12);
 	   printf("%+*.*o\n",6, 0,12);
-//	fflush(stdout);
+	fflush(stdout);
 
-*/
 
-//	ft_putnbr(9223372036854775807);
-	ft_putnbr(ft_printf("&%  h&\n",6, 0,12));
+
+	//ft_putnbr(9223372036854775807);
+
+	(ft_printf("1-%        -\n"));
+	   (printf("2-%        -\n"));
+
+	ft_printf("\n-------------------\n");
+
+	ft_putnbr(ft_printf("+%  h+\n",6, 0,12));
 	   ft_putnbr(printf("+%  h+\n",6, 0,12));
 
-	ft_printf("\n|#        '# + - 0 15 L d'        : _%#0+---hh--hhh-++++++0015d_\n", MAX_INT);
-//	   printf("|#        '# + - 0 15 L d'        : _%#0+---hh--hhh-++++++0015d_\n", MAX_INT);
-//	fflush(stdout);
 
+	ft_printf("\n|#        '# + - 0 15 L d'        : _%#0+---hh--hhh-++++++0015d_\n", MAX_INT);
+	   printf("|#        '# + - 0 15 L d'        : _%#0+---hh--hhh-++++++0015d_\n", MAX_INT);
+	fflush(stdout);
+*/
 //	char *format = " {BLU}sahit farou9  nom : {GREEN}%s{EOC} premom : {RED}%s{EOC}\n";
 	char *format = "\nnom : {green}%s{eoc} premom : {red}%s{eoc}\n";
 //	char *format = "nom : green}%s{eoc} premom : {red}%s{eoc\n";
@@ -208,7 +219,11 @@ int		main()
 //	char *format = "nom : {grEEn}%s{eOc} premom : {REd}%s{eoc}\n";
 	char *name1 ="belaloui";
 	char *name2 ="mehdi";
-	ft_printf(format, name1, name2);
+//	ft_printf(format, name1, name2);
+	
+//ft_putnbr(ft_nbrlen(9223372036854775807));
+
+//	ft_printf("%jd\n", -9223372036854775808);
 	
 
 	/*	printf("%");

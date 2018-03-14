@@ -10,10 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
-gcc ../../../libft/*.c\
+gcc ../libft/*.c\
 	test_printf/main_test.c \
 	test_printf/type_test/*.c\
 	test_printf/print_messages/*\
 	test_printf/run_test/*.c\
 	push/*.c\
+	push/format/*.c\
+	push/type_convertion/*.c\
+	push/put/*.c\
+	push/color/*.c\
 	&& ./a.out > result.txt  && rm ./a.out && grep test result.txt

@@ -109,8 +109,8 @@ int				ft_put_param(va_list *ap, char *str, t_format *format)
 	if ((pt_end_of_format = ft_get_parssing_format(str, format)) == -1)
 		return (-1);
 	check_flags(str + 1, format, pt_end_of_format);
-	get_info(str, format, pt_end_of_format);
-	get_convertion(str, &(format->convertion), pt_end_of_format);
+	get_info(str + 1, format, pt_end_of_format);
+	get_convertion(str + 1, &(format->convertion), pt_end_of_format);
 	ft_switch_type(format, ap);
 	return (pt_end_of_format + 1);
 }

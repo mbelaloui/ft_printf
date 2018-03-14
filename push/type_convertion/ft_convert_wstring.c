@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_str.c                                       :+:      :+:    :+:   */
+/*   ft_convert_wstring.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/10 15:04:22 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/03/12 19:33:06 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/02/28 13:03:02 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/02/28 13:04:08 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int		ft_put_str(char *print, intmax_t max_print)
+void	ft_convert_wstring(t_format *format, va_list *ap)
 {
-	int pt;
 
-	pt = 0;
-	while (pt < max_print)
-	{
-		ft_put_buf(print[pt], PUT_CHAR);
-		pt++;
-	}
-	return (pt);
 }
+

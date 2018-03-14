@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 /** voir pour le %f si c'est bien d'enlever le static ici **/
 
-static void	put_nbr(long nbr)
+static void	put_nbr(intmax_t nbr)
 {
 	if (nbr / 10)
 		put_nbr(nbr / 10);
 	ft_put_buf((nbr % 10) + '0', PUT_CHAR);
 }
 
-static int	manage_nbr_shift(long nbr, t_format *frmt, int shift)
+static int	manage_nbr_shift(intmax_t nbr, t_format *frmt, int shift)
 {
 	char	c;
 	int		pt;
@@ -48,7 +48,7 @@ static int	manage_nbr_shift(long nbr, t_format *frmt, int shift)
 	return (pt);
 }
 
-static int	put_zero(t_format *format, long nbr)
+static int	put_zero(t_format *format, intmax_t nbr)
 {
 	int		nbr_0;
 	int		ret_nbr_put;
@@ -68,7 +68,15 @@ static int	put_zero(t_format *format, long nbr)
 	return (ret_nbr_put);
 }
 
-void		ft_put_nbr(long nbr, t_format *format, int shift, int size_ret)
+void		put_min_intmax()
+{
+	char *nbr_minint;
+	
+	nbr_minint = "9223372036854775808";
+	ft_put_str(nbr_minint, 19);
+}
+
+void		ft_put_nbr(intmax_t nbr, t_format *format, int shift, int size_ret)
 {
 	int		pt;
 
@@ -83,7 +91,11 @@ void		ft_put_nbr(long nbr, t_format *format, int shift, int size_ret)
 	if (nbr < 0)
 		nbr = -nbr;
 	if (!(format->precision == 0 && nbr == 0))
-		put_nbr(nbr);
+	{	if (nbr < MIN_INTMAX)
+			put_min_intmax();
+		else
+			put_nbr(nbr);
+	}
 	while (pt + format->len_temp < size_ret)
 	{
 		ft_put_buf(' ', PUT_CHAR);

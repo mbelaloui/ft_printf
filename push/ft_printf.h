@@ -72,9 +72,9 @@ void			ft_put_convertion(t_convert *convertion);
 int				ft_put_buf(const char c, int option);
 
 void			ft_format_init(t_format *format);
-void			ft_put_nbr(long nbr, t_format *format, int nbr_0, int size_ret);
+void			ft_put_nbr(intmax_t nbr, t_format *format, int nbr_0, int size_ret);
 
-long			ft_get_convertion_d(int data, t_convert convert);
+intmax_t		ft_get_convertion_size(intmax_t data, t_convert convert);
 void			ft_convert_percent(t_format *format, va_list *ap);
 int				ft_fill_buf(intmax_t max_print, char print);
 void			ft_generat_char_ret(t_format *format, unsigned char temp);

@@ -20,13 +20,21 @@ static void		ft_generat_ret(t_format *format, char *str)
 	int		max_print;
 	int		size_ret;
 
+/*********************************************************************/
+	// %s ,%S
 	shift = (format->flags.dash) ? 0 : format->min_length - format->precision;
 	padd = (format->flags.zero) ? '0' : ' ';
 	nbr_char_put = ft_fill_buf(shift, padd);
 	size_ret =  ft_max(format->len_temp, format->min_length);
 	max_print  = ft_min(size_ret, format->precision);
+/*********************************************************************/
+
 	nbr_char_put += ft_put_str(str, max_print);
+
+/*********************************************************************/
+	// %s ,%S
 	ft_fill_buf(format->min_length - nbr_char_put, ' ');
+/*********************************************************************/
 }
 
 void		ft_convert_string(t_format *format, va_list *ap)

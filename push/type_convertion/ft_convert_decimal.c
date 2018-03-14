@@ -16,16 +16,19 @@ static void		ft_generat_ret(t_format *format, intmax_t nbr)
 {
 	int		size_ret;
 	int		shift;
-
+/*********************************************************************/
+	// faire passer %d, %D, %o, %O, %u, %U, %x, %X
 	size_ret = ft_max(format->len_temp, format->precision);
 	size_ret = ft_max(size_ret, format->min_length);
 	shift = (size_ret - ft_max(format->len_temp, format->precision));
+/*********************************************************************/
 	if (nbr < 0 || format->flags.plus)
 		shift--;
 	ft_put_nbr(nbr, format, shift, size_ret);
 }
 
 // faire passer %d, %D, %o, %O, %u, %U, %x, %X
+/*********************************************************************/
 void			ft_convert_decimal(t_format *format, va_list *ap)
 {
 	intmax_t	nbr;
@@ -42,6 +45,21 @@ void			ft_convert_decimal(t_format *format, va_list *ap)
 		format->precision = 1;
 	ft_generat_ret(format, nbr);
 }
+/*********************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //	nbr = (va_arg(*ap, intmax_t));
 

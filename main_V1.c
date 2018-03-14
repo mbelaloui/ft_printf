@@ -219,8 +219,26 @@ int		main()
 //	char *format = "nom : {grEEn}%s{eOc} premom : {REd}%s{eoc}\n";
 	char *name1 ="belaloui";
 	char *name2 ="mehdi";
-//	ft_printf(format, name1, name2);
+
+	char tab[65];
+	ft_bzero(tab, sizeof(tab));
+	ft_memset(tab, ' ', 64);
 	
+/*	ft_memset();
+ft_decimal_to_base_stat(char *tab_ret, const intmax_t nbr,
+		const int base, const int form)
+*/
+	// ft_putnbr(ft_get_len_value_base(9223372036854775808, 2));
+ft_putstr("/***********************/\n");
+ft_putstr(ft_decimal_to_base_dynm(54775807, 2, 1));
+ft_putstr("\n/***********************/\n");
+ft_decimal_to_base_stat(tab,-54775807, 2, 1);
+ft_putstr("/***********************/\n");
+ft_putstr(tab);
+ft_putstr("\n/***********************/\n");
+
+//	ft_printf(format, name1, name2);
+//ft_decimal_to_base_stat(char *tab_ret, const intmax_t nbr, const int base, const int form)	
 //ft_putnbr(ft_nbrlen(9223372036854775807));
 
 //	ft_printf("%jd\n", -9223372036854775808);

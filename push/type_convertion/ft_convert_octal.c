@@ -17,17 +17,19 @@ static void		ft_generat_ret(t_format *format, long temp)
 	int		size_ret;
 	int		shift;
 
+/*********************************************************************/
 	format->len_temp = (temp == 0) ? 1 :ft_nbrlen(temp);
 	if (!format->is_there_precision && format->flags.zero)
 		format->precision =  format->min_length - 1;
 	if (format->precision <= 0 && !format->is_there_precision)
 		format->precision = 1;
-	
 	size_ret = ft_max(format->len_temp, format->precision);
 	size_ret = ft_max(size_ret, format->min_length);
 	shift = (size_ret - ft_max(format->len_temp, format->precision));
 	if (temp < 0)
 		shift--;
+/*********************************************************************/
+
 	format->flags.plus = 0;
 	ft_put_nbr(temp, format, shift, size_ret);
 }
@@ -42,19 +44,20 @@ void			ft_convert_octal(t_format *format, va_list *ap)
 		format->min_length = va_arg(*ap, int);
 	if (format->precision == -2)
 		format->precision = va_arg(*ap, int);
-	if (format->convertion.j)
-		temp = (va_arg(*ap, intmax_t));
-	else if (format->convertion.z)
-		temp = (va_arg(*ap, size_t));
-	else
-	{
-		temp = (va_arg(*ap, int));
-		temp = ft_get_convertion_size(temp, format->convertion);
-	}
+	temp = (va_arg(*ap, intmax_t));
+	temp = ft_get_convertion_size(temp, format->convertion);
+
+/*
+	faire une fonction communes pour le %b %o %x
+
+	ft_decimal_to_base_stat(temp_tab,temp,BIN,UPPER);
+	ft_decimal_to_base_stat(temp_tab,temp,OCT,UPPER);
+	ft_decimal_to_base_stat(temp_tab,temp,EXA,UPPER);
+*/
 	if (format->type == 'O')
 		ft_decimal_to_base_stat(temp_tab,temp,OCT,UPPER);
 	else
 		ft_decimal_to_base_stat(temp_tab,temp,OCT,LOWER);
-	temp = ft_atoi(temp_tab);
+	temp = ft_atoi(temp_tab); // nest pas oubligatoire le gerer comme pour %x 
 	ft_generat_ret(format, temp);
 }

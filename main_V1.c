@@ -229,13 +229,45 @@ ft_decimal_to_base_stat(char *tab_ret, const intmax_t nbr,
 		const int base, const int form)
 */
 	// ft_putnbr(ft_get_len_value_base(9223372036854775808, 2));
+	
+	intmax_t nbr = -9223372036854775807;
+	
 ft_putstr("/***********************/\n");
-ft_putstr(ft_decimal_to_base_dynm(54775807, 2, 1));
+ft_putstr(ft_decimal_to_base_dynm(nbr, 2, 1));
 ft_putstr("\n/***********************/\n");
-ft_decimal_to_base_stat(tab,-54775807, 2, 1);
+ft_decimal_to_base_stat(tab,-nbr, 2, 1);
 ft_putstr("/***********************/\n");
 ft_putstr(tab);
 ft_putstr("\n/***********************/\n");
+
+
+ft_putstr("/***********************/\n");
+ft_putstr(ft_decimal_to_base_dynm(nbr, 8, 1));
+ft_putstr("\n/***********************/\n");
+ft_decimal_to_base_stat(tab,-nbr, 8, 1);
+ft_putstr("/***********************/\n");
+ft_putstr(tab);
+ft_putstr("\n/***********************/\n");
+
+
+ft_putstr("/***********************/\n");
+ft_putstr(ft_decimal_to_base_dynm(nbr, 10, 1));
+ft_putstr("\n/***********************/\n");
+ft_decimal_to_base_stat(tab,-nbr, 10, 1);
+ft_putstr("/***********************/\n");
+ft_putstr(tab);
+ft_putstr("\n/***********************/\n");
+
+
+ft_putstr("/***********************/\n");
+ft_putstr(ft_decimal_to_base_dynm(nbr, 16, 1));
+ft_putstr("\n/***********************/\n");
+ft_decimal_to_base_stat(tab,-nbr, 16, 1);
+ft_putstr("/***********************/\n");
+ft_putstr(tab);
+ft_putstr("\n/***********************/\n");
+
+
 
 //	ft_printf(format, name1, name2);
 //ft_decimal_to_base_stat(char *tab_ret, const intmax_t nbr, const int base, const int form)	

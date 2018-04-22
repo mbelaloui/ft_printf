@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 11:07:46 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/04/21 14:45:06 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/04/22 02:37:06 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		put_base(t_format *format, int shift, int size_ret, char *str)
 		nbr_char_put = ft_fill_buf(shift, ' ');
 	if (format->flags.hashtag && str[0])
 	{
-		if (!(format->type == 'o' && format->precision > format->len_temp))
+		if (!(format->type == 'o' && format->precision > (int)format->len_temp))
 			ft_put_buf('0', PUT_CHAR);
 		if (format->type == 'X')
 			ft_put_buf('X', PUT_CHAR);
@@ -30,7 +30,7 @@ static void		put_base(t_format *format, int shift, int size_ret, char *str)
 	}
 	if (!format->flags.dash && format->flags.zero)
 		nbr_char_put = ft_fill_buf(shift, '0');
-	if (format->precision > format->len_temp || shift > 0)
+	if (format->precision > (int)format->len_temp || shift > 0)
 		nbr_char_put += ft_fill_buf(format->precision - format->len_temp, '0');
 	nbr_char_put += ft_put_str(str, format->len_temp);
 	ft_fill_buf(size_ret - nbr_char_put, ' ');

@@ -6,13 +6,13 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2018/04/22 02:06:16 by mbelalou         ###   ########.fr        #
+#    Updated: 2018/04/22 02:54:56 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
 
-FLAGES	=	-c -Wall -Wextra -Werror
+FLAGES	=	 -Wall -Wextra -Werror -c
 
 DIR_COLOR	= color
 SRC_COLOR = ft_inittabcolor.c ft_setcyan.c ft_setred.c ft_get_color.c\
@@ -57,34 +57,32 @@ OBJ		= 	$(addprefix $(OBJS_DIR), $(SRC:.c=.o))
 all		:	$(LIBFT) $(NAME) $(INC_DIR)
 
 $(NAME)	: $(OBJS_DIR)  $(SRC) $(OBJ) $(INC_DIR)
-	make -C $(LIBFT_DIR)
-	cp $(LIBFT_DIR)/libft.a ./$(NAME)
+	@printf "\x1B[A\x1B[K";
+	@make -C $(LIBFT_DIR)
+	@cp $(LIBFT_DIR)/libft.a ./$(NAME)
 	@ar rc $(NAME) $(OBJ)
-	@@echo compilation complited successfully !
-
+	@@echo the compilation of libftprintf wase complited successfully !
 
 $(OBJS_DIR)%.o : %.c
-	@##@printf "Create $@ src with $<...\n";
-	@gcc -c $< -o $@ -I $(INC_DIR) 
+	@printf "\x1B[ACreate $@ src with $<...\x1B[K\n";
+	@gcc $(FLAGES) $< -o $@ -I $(INC_DIR) 
 
 $(OBJS_DIR):
-	@#@printf "Create $(OBJS_DIR) dir...\n"; 
-		@mkdir -p $(OBJS_DIR); 
-		@mkdir -p $(OBJS_DIR)/$(DIR_COLOR); 
-		@mkdir -p $(OBJS_DIR)/$(DIR_FORMAT); 
-		@mkdir -p $(OBJS_DIR)/$(DIR_PARSING); 
-		@mkdir -p $(OBJS_DIR)/$(DIR_PUT); 
-		@mkdir -p $(OBJS_DIR)/$(DIR_CONV_TYPE); 
+	@mkdir -p $(OBJS_DIR); 
+	@mkdir -p $(OBJS_DIR)/$(DIR_COLOR); 
+	@mkdir -p $(OBJS_DIR)/$(DIR_FORMAT); 
+	@mkdir -p $(OBJS_DIR)/$(DIR_PARSING); 
+	@mkdir -p $(OBJS_DIR)/$(DIR_PUT); 
+	@mkdir -p $(OBJS_DIR)/$(DIR_CONV_TYPE); 
 
 clean	:
-	make -C $(LIBFT_DIR) clean
+	@make -C $(LIBFT_DIR) clean
 	@rm -fr $(OBJS_DIR)
-	@echo cleaned all the .o
 
 fclean	:	clean
-	make -C $(LIBFT_DIR) fclean
+	@make -C $(LIBFT_DIR) fclean
 	@rm -f $(NAME)
-	@echo cleaned the .a file.
+	@echo cleaned the $(NAME) file.
 	@echo the directory is totaly cleaned
 
 re		:	fclean all

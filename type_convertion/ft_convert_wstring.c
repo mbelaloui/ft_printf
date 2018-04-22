@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 12:43:06 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/04/22 02:11:22 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/04/22 02:38:41 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int		manage_shift(wchar_t *wstr, t_format *format)
 	max_print = ft_max(format->precision, format->min_length);
 	print = 0;
 	pt = 0;
-	while (pt < format->len_temp)
+	while (pt < (int)format->len_temp)
 	{
 		len_str = ft_wcharlen(wstr[pt]);
 		if (print + len_str <= format->precision)

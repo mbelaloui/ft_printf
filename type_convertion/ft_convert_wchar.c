@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 17:41:47 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/04/22 02:16:12 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/04/22 02:37:52 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static void		ft_generat_ret(t_format *format, char *str, wchar_t val)
 	int		shift;
 	char	padd;
 	int		nbr_char_put;
-	int		max_print;
-	int		size_ret;
 
 	shift = (format->flags.dash) ? 0 : format->min_length - format->len_temp;
 	shift = (!val) ? 0 : shift;
